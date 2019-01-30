@@ -1,19 +1,32 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatMenuModule, MatToolbarModule, MatButtonModule } from "@angular/material";
+import { MatMenuModule, MatToolbarModule, MatButtonModule, MatIconModule } from "@angular/material";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-const materialModules = [
+const materialModules: any[]  = [
   MatToolbarModule,
   MatMenuModule,
   MatButtonModule,
+  MatIconModule,
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ].concat(...materialModules),
   exports: [
+    FormsModule,
+    ReactiveFormsModule,
   ].concat(...materialModules),
 })
-export class SharedModule { }
+export class SharedModule {
+
+  constructor() {
+  }
+}
