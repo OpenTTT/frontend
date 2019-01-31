@@ -7,7 +7,8 @@ import { DispatchDetailComponent } from './scheduled-dispatches/dispatch-detail/
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', redirectTo: 'home', pathMatch: "full"},
+  {path: 'home', component: HomeComponent},
   {path: 'stations', component: StationListComponent},
   {path: 'dispatches', component: DispatchListComponent},
   {path: 'dispatches/:id', component: DispatchDetailComponent}

@@ -19,6 +19,10 @@
     font-weight: bold;
     font-size: 1.2em;
     width: 100%;
+
+    &.active {
+      background-color: #d2d5d2;
+    }
   }
 }
 
