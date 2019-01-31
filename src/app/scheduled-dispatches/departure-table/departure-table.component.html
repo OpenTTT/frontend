@@ -1,4 +1,7 @@
-<table style="width: 100%" mat-table [dataSource]="schedules" class="mat-elevation-z8" *ngIf="schedules">
+<table mat-table
+       [dataSource]="schedules"
+       *ngIf="schedules"
+      >
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -17,5 +20,5 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns; let even = even" [ngClass]="{even: even}"></tr>
 </table>

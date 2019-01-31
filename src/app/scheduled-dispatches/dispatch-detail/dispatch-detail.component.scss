@@ -1,0 +1,13 @@
+#compact-timetable-schedule {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  mat-card {
+    flex-grow: 1;
+
+    &:not(:first-child) {
+      margin-left: 15px;
+    }
+  }
+}
