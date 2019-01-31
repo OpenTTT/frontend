@@ -21,7 +21,7 @@
   </mat-form-field>
   <app-departure-table *ngIf="id != -1; else scheduleLoading;"
                        [dispatchId]="id"
-                       [schedulesDisplayed]="numberOfDeparturesDisplayed"
+                       [numSchedules]="numberOfDeparturesDisplayed"
   >
 
   </app-departure-table>
