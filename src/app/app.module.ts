@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { StationsModule } from './stations/stations.module';
 import { ScheduledDispatchesModule } from './scheduled-dispatches/scheduled-dispatches.module';
 import { HomeComponent } from './home/home.component';
+import {TimetablesModule} from './timetables/timetables.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     StationsModule,
     ScheduledDispatchesModule,
+    TimetablesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,6 +10,18 @@
 </mat-card>
 
 <mat-card>
+  <mat-card-title>Timetable</mat-card-title>
+  <app-timetable-table *ngIf="id != 1; else timetableLoading"
+                       [timetableId]="dispatch.timetableId"
+  >
+
+  </app-timetable-table>
+  <ng-template #timetableLoading>
+    The timetable is loading...
+  </ng-template>
+</mat-card>
+
+<mat-card>
   <mat-card-title>Schedule</mat-card-title>
   <mat-form-field>
     <input matInput
