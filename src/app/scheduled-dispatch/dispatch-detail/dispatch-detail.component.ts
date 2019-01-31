@@ -16,27 +16,13 @@ export class DispatchDetailComponent implements OnInit {
     private api: ScheduledDispatchService,
   ) { }
 
+  id: number = -1;
   dispatch: ScheduledDispatch;
-  schedules: Object[];
-  displayedColumns: string[] = ['station'];
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const id = +params['id'];
-      this.api.getDispatch(id).subscribe(dispatch => this.dispatch = dispatch);
-      this.api.getSchedulesForDispatchByStation(id).subscribe(schedules => {
-        schedules[0].departures.forEach((x, i) => this.displayedColumns.push(`departure${i}`));
-        this.schedules = schedules.map((s) => {
-          let obj = {station: s.station};
-
-          s.departures.forEach((dep, idx) => {
-            obj[`departure${idx}`] = dep.departure;
-          });
-
-          return obj;
-        });
-        console.log(this.schedules);
-      });
+      this.id = +params['id'];
+      this.api.getDispatch(this.id).subscribe(dispatch => this.dispatch = dispatch);
     });
   }
 }
