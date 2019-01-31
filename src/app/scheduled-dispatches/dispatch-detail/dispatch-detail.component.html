@@ -1,11 +1,18 @@
-<mat-card xmlns="http://www.w3.org/1999/html">
-  <mat-card-title>{{ dispatch?.timetable || 'Unknown Dispatch' }}</mat-card-title>
-  <p>A scheduled dispatch that repeats every {{ dispatch?.intervalInMinutes || '∞' }} minutes</p>
+<mat-card>
+  <mat-card-title>Dispatch for timetable {{ dispatch?.timetable || '&lt;unknown&gt;' }}</mat-card-title>
   <div>
-    It departs at the following times:
+    A scheduled dispatch that repeats every
+    <strong>{{ dispatch?.intervalInMinutes || '∞' }}</strong>
+    minutes
+  </div>
+  <div>
+    Within that interval, it begins a new schedule at the following offsets:
     <ul>
-      <li *ngFor="let departure of dispatch?.departures || []">{{ departure }}</li>
+      <li *ngFor="let departure of dispatch?.departures || []">
+        <strong>{{ departure }}</strong> minutes
+      </li>
     </ul>
+    <small>Explanation: With a interval of 60 minutes and departures at offsets 0 and 30, the train would start at 00:00 and 00:30</small>
   </div>
 </mat-card>
 
