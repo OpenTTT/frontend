@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
-import { Stats } from "./stats";
-import { HttpClient } from "@angular/common/http";
-import { OpenTTTService } from "./shared/openttt-service";
+import { Observable } from 'rxjs';
+import { Stats } from './stats';
+import { HttpClient } from '@angular/common/http';
+import { OpenTTTService } from './shared/openttt-service';
 
 @Injectable({
   providedIn: 'root'

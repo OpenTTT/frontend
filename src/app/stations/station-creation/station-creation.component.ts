@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
-import { FormBuilder, Validators } from "@angular/forms";
-import { StationsService } from "../stations.service";
-import { Station } from "../station";
-import { Subject } from "rxjs";
+import { FormBuilder, Validators } from '@angular/forms';
+import { StationsService } from '../stations.service';
+import { Station } from '../station';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-station-creation',
@@ -17,7 +17,7 @@ export class StationCreationComponent {
   ) { }
 
   @Output() stationAdded: Subject<Station> = new Subject();
-  @ViewChild("stationName") stationNameInput: ElementRef;
+  @ViewChild('stationName') stationNameInput: ElementRef;
 
   form = this.fb.group({
     destinationType: ['STATION'],
@@ -32,11 +32,11 @@ export class StationCreationComponent {
         .subscribe(
           (station) => {
             this.stationAdded.next(station);
-            this.clearForm()
+            this.clearForm();
           },
           (error) => {
           this.form.enable();
-          console.error(error)
+          console.error(error);
         });
     }
   }

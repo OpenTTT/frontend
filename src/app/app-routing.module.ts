@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { StationListComponent } from "./stations/station-list/station-list.component";
-import { StationsModule } from "./stations/stations.module";
-import { DispatchListComponent } from "./scheduled-dispatch/dispatch-list/dispatch-list.component";
-import { DispatchDetailComponent } from "./scheduled-dispatch/dispatch-detail/dispatch-detail.component";
-import { HomeComponent } from "./home/home.component";
+import { StationListComponent } from './stations/station-list/station-list.component';
+import { StationsModule } from './stations/stations.module';
+import { DispatchListComponent } from './scheduled-dispatch/dispatch-list/dispatch-list.component';
+import { DispatchDetailComponent } from './scheduled-dispatch/dispatch-detail/dispatch-detail.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},

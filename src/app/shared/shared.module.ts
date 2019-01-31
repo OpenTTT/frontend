@@ -7,10 +7,10 @@ import {
   MatIconModule,
   MatCardModule,
   MatInputModule, MatSidenavModule
-} from "@angular/material";
-import { HttpClientModule } from "@angular/common/http";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
+} from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 const materialModules: any[]  = [
   MatToolbarModule,

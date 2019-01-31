@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ScheduledDispatch } from "../scheduled-dispatch";
-import { ActivatedRoute} from "@angular/router";
-import { ScheduledDispatchService } from "../scheduled-dispatch.service";
-import { ScheduleByStation } from "../schedule-by-station";
+import { ScheduledDispatch } from '../scheduled-dispatch';
+import { ActivatedRoute} from '@angular/router';
+import { ScheduledDispatchService } from '../scheduled-dispatch.service';
+import { ScheduleByStation } from '../schedule-by-station';
 
 @Component({
   selector: 'app-dispatch-detail',
@@ -16,7 +16,7 @@ export class DispatchDetailComponent implements OnInit {
     private api: ScheduledDispatchService,
   ) { }
 
-  id: number = -1;
+  id = -1;
   dispatch: ScheduledDispatch;
   numberOfDeparturesDisplayed = 5;
 
