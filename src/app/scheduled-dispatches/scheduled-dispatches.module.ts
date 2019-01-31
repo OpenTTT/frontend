@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MatListModule, MatTableModule } from '@angular/material';
 import { DispatchDetailComponent } from './dispatch-detail/dispatch-detail.component';
 import { DepartureTableComponent } from './departure-table/departure-table.component';
+import { TimetablesModule } from '../timetables/timetables.module';
 
 @NgModule({
   declarations: [DispatchListComponent, DispatchDetailComponent, DepartureTableComponent],
@@ -13,7 +14,8 @@ import { DepartureTableComponent } from './departure-table/departure-table.compo
     SharedModule,
     MatListModule,
     MatTableModule,
+    TimetablesModule,
   ],
   exports: [DispatchListComponent, DispatchDetailComponent],
 })
-export class ScheduledDispatchModule { }
+export class ScheduledDispatchesModule { }
