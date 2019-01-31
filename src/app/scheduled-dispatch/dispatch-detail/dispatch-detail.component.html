@@ -11,7 +11,20 @@
 
 <mat-card>
   <mat-card-title>Schedule</mat-card-title>
-  <app-departure-table *ngIf="id != -1; else scheduleLoading;" [dispatchId]="id"></app-departure-table>
+  <mat-form-field>
+    <input matInput
+           placeholder="# departures"
+           [(ngModel)]="numberOfDeparturesDisplayed"
+           type="number" max="25" min="1"
+           autofocus
+    >
+  </mat-form-field>
+  <app-departure-table *ngIf="id != -1; else scheduleLoading;"
+                       [dispatchId]="id"
+                       [schedulesDisplayed]="numberOfDeparturesDisplayed"
+  >
+
+  </app-departure-table>
   <ng-template #scheduleLoading>
     The schedule is loading...
   </ng-template>

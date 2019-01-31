@@ -28,7 +28,10 @@ export class ScheduledDispatchService extends OpenTTTService {
     return this.http.get<Schedule[]>(this.url(`scheduled-dispatch/${id}/departures`));
   }
 
-  getSchedulesForDispatchByStation(id: number): Observable<ScheduleByStation[]> {
-    return this.http.get<ScheduleByStation[]>(this.url(`scheduled-dispatch/${id}/departures-by-station`));
+  getSchedulesForDispatchByStation(id: number, numberOfDepartures: number = 5): Observable<ScheduleByStation[]> {
+    return this.http.get<ScheduleByStation[]>(
+      this.url(`scheduled-dispatch/${id}/departures-by-station`),
+      {params: {numberOfDepartures: numberOfDepartures.toString()}}
+    );
   }
 }

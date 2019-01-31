@@ -18,6 +18,7 @@ export class DispatchDetailComponent implements OnInit {
 
   id: number = -1;
   dispatch: ScheduledDispatch;
+  numberOfDeparturesDisplayed = 5;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
