@@ -1,6 +1,8 @@
-<mat-nav-list>
-  <a mat-list-item *ngFor="let dispatch of dispatches" [routerLink]="[dispatch.id]">
-    <span id="dispatch-name">{{ dispatch.timetable }}</span>
-    <small><strong>{{ dispatch.departures.length}}</strong> departures, every <strong>{{ dispatch.intervalInMinutes}} minutes</strong></small>
-  </a>
-</mat-nav-list>
+<mat-card>
+  <mat-nav-list>
+    <a mat-list-item *ngFor="let dispatch of dispatches" [routerLink]="[dispatch.id]">
+      <span id="dispatch-name">{{ dispatch.timetable }}</span>
+      <small><strong>{{ dispatch.departures.length}}</strong> departures, every <strong>{{ dispatch.intervalInMinutes}} minutes</strong></small>
+    </a>
+  </mat-nav-list>
+</mat-card>

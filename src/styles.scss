@@ -1,8 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "theme";
 
 body {
   margin: 0;
   color: #383838;
   font-size: 1.1em; // I have a slight eye problem
+}
+
+* {
+  font-family: 'Catamaran', sans-serif;
+}
+
+mat-card {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

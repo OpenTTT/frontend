@@ -6,7 +6,7 @@ import {
   MatButtonModule,
   MatIconModule,
   MatCardModule,
-  MatInputModule
+  MatInputModule, MatSidenavModule
 } from "@angular/material";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -19,6 +19,7 @@ const materialModules: any[]  = [
   MatIconModule,
   MatCardModule,
   MatInputModule,
+  MatSidenavModule,
 ];
 
 @NgModule({
