@@ -20,14 +20,20 @@
   <mat-card>
     <mat-card-title>Timetable</mat-card-title>
     <div id="timetable-table" *ngIf="dispatch; else timetableLoading">
-
-      <app-timetable-table [timetableId]="dispatch.timetableId">
-      </app-timetable-table>
-
+      <div [ngSwitch]="editMode">
+        <app-timetable-table [timetableId]="dispatch.timetableId"
+                             *ngSwitchCase="false"
+        ></app-timetable-table>
+        <app-timetable-editor [timetableId]="dispatch.timetableId"
+                              *ngSwitchCase="true">
+        </app-timetable-editor>
+      </div>
     </div>
     <ng-template #timetableLoading>
       The timetable is loading...
     </ng-template>
+
+    <button mat-raised-button color="primary" (click)="toggleEditMode()"><mat-icon>edit</mat-icon> Edit</button>
   </mat-card>
 
   <mat-card>

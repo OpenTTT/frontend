@@ -19,11 +19,16 @@ export class DispatchDetailComponent implements OnInit {
   id = -1;
   dispatch: ScheduledDispatch;
   numberOfDeparturesDisplayed = 5;
+  editMode = false;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
       this.api.getDispatch(this.id).subscribe(dispatch => this.dispatch = dispatch);
     });
+  }
+
+  toggleEditMode() {
+    this.editMode = !this.editMode;
   }
 }
