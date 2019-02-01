@@ -19,11 +19,12 @@
 <div id="compact-timetable-schedule">
   <mat-card>
     <mat-card-title>Timetable</mat-card-title>
-    <app-timetable-table *ngIf="id != 1; else timetableLoading"
-                         [timetableId]="dispatch.timetableId"
-    >
+    <div id="timetable-table" *ngIf="dispatch; else timetableLoading">
 
-    </app-timetable-table>
+      <app-timetable-table [timetableId]="dispatch.timetableId">
+      </app-timetable-table>
+
+    </div>
     <ng-template #timetableLoading>
       The timetable is loading...
     </ng-template>
@@ -31,12 +32,12 @@
 
   <mat-card>
     <mat-card-title>Schedule</mat-card-title>
-    <app-departure-table *ngIf="id != -1; else scheduleLoading;"
-                         [dispatchId]="id"
-                         [numSchedules]="numberOfDeparturesDisplayed"
-    >
+    <div id="schedule-table" *ngIf="dispatch; else scheduleLoading;">
 
-    </app-departure-table>
+      <app-departure-table [numSchedules]="numberOfDeparturesDisplayed" [dispatchId]="id">
+      </app-departure-table>
+
+    </div>
     <ng-template #scheduleLoading>
       The schedule is loading...
     </ng-template>
