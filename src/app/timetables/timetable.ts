@@ -1,10 +1,11 @@
-export class Order {
+export interface Order {
+  id: number;
   destination: string;
   stayingTime: number;
   travelingTime: number;
 }
 
-export class Timetable {
+export interface Timetable {
   name: string;
   orders: Order[];
 }
