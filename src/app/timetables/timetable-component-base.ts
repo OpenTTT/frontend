@@ -5,7 +5,7 @@ import {Order, Timetable} from './timetable';
 export class TimetableComponentBase {
 
   constructor(
-    private api: TimetableService,
+    protected api: TimetableService,
   ) { }
 
 

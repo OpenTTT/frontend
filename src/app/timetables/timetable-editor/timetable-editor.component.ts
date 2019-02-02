@@ -1,6 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {TimetableComponentBase} from '../timetable-component-base';
 import {TimetableService} from '../timetable.service';
+import {Observable, Subject} from 'rxjs';
+import {Order} from '../timetable';
 
 @Component({
   selector: 'app-timetable-editor',
@@ -8,7 +10,7 @@ import {TimetableService} from '../timetable.service';
   styleUrls: ['./timetable-editor.component.scss']
 })
 export class TimetableEditorComponent extends TimetableComponentBase implements OnInit {
-
+  @Output() timetableChanged: Subject<any>;
 
   constructor(api: TimetableService) {
     super(api);
@@ -18,11 +20,16 @@ export class TimetableEditorComponent extends TimetableComponentBase implements 
     this.loadTimetable();
   }
 
-  onStayingTimeChanged(orderId, newValue) {
-    console.log(`Staying time changed for TimetabledOrder ${orderId} changed to ${newValue}`);
+  onStayingTimeChanged(order: Order, newValue: number) {
+    console.log('Update oder? ')
+    order.stayingTime = newValue;
+    this.api.updateOrder(this.timetableId, order)
+      .subscribe(() => this.timetableChanged.next());
   }
 
-  onTravelingTimeChanged(orderId, newValue) {
-    console.log(`Staying time changed for TimetabledOrder ${orderId} changed to ${newValue}`);
+  onTravelingTimeChanged(order: Order, newValue: number) {
+    order.travelingTime = newValue;
+    this.api.updateOrder(this.timetableId, order)
+      .subscribe(() => this.timetableChanged.next());
   }
 }
