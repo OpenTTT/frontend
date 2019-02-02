@@ -21,4 +21,12 @@ export class TimetableService extends OpenTTTService {
     const url = this.url(`timetable/${timetableId}/order/${order.id}`);
     return this.http.put<Order>(url, order);
   }
+
+  getTimetables(): Observable<Timetable[]> {
+    return this.http.get<Timetable[]>(this.url('timetables/'));
+  }
+
+  updateTimetable(timetable: Timetable): Observable<Timetable> {
+    return this.http.put<Timetable>(this.url(`timetable/${timetable.id}`), timetable);
+  }
 }

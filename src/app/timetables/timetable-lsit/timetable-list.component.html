@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-nav-list>
+    <a mat-list-item *ngFor="let timetable of timetables" [routerLink]="[timetable.id]">
+      <div><span id="dispatch-name">{{ timetable.name }}</span></div>
+      <small>
+        Calling at
+        <span *ngFor="let order of timetable.orders; let isLast=last">
+          {{ order.destination }}{{ isLast ? '' : ', ' }}
+        </span>
+      </small>
+    </a>
+  </mat-nav-list>
+</mat-card>

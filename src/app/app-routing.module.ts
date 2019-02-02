@@ -5,13 +5,17 @@ import { StationsModule } from './stations/stations.module';
 import { DispatchListComponent } from './scheduled-dispatches/dispatch-list/dispatch-list.component';
 import { DispatchDetailComponent } from './scheduled-dispatches/dispatch-detail/dispatch-detail.component';
 import { HomeComponent } from './home/home.component';
+import {TimetableListComponent} from './timetables/timetable-lsit/timetable-list.component';
+import {TimetableDetailComponent} from './timetables/timetable-detail/timetable-detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'stations', component: StationListComponent},
   {path: 'dispatches', component: DispatchListComponent},
-  {path: 'dispatches/:id', component: DispatchDetailComponent}
+  {path: 'dispatches/:id', component: DispatchDetailComponent},
+  {path: 'timetables', component: TimetableListComponent},
+  {path: 'timetables/:id', component: TimetableDetailComponent},
 ];
 
 @NgModule({

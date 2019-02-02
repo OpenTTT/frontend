@@ -5,6 +5,7 @@ import { MatListModule } from '@angular/material/list';
 import { SharedModule } from '../shared/shared.module';
 import { StationCreationComponent } from './station-creation/station-creation.component';
 import { MatInputModule, MatOptionModule, MatSelectModule } from '@angular/material';
+import {StationsService} from './stations.service';
 
 @NgModule({
   declarations: [StationListComponent, StationCreationComponent],
@@ -17,7 +18,10 @@ import { MatInputModule, MatOptionModule, MatSelectModule } from '@angular/mater
     MatSelectModule,
   ],
   exports: [
-    StationListComponent
+    StationListComponent,
+  ],
+  providers: [
+    StationsService,
   ]
 })
 export class StationsModule { }

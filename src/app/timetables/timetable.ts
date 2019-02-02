@@ -6,6 +6,7 @@ export interface Order {
 }
 
 export interface Timetable {
+  id: number;
   name: string;
   orders: Order[];
 }

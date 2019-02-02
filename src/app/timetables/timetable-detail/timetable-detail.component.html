@@ -1,0 +1,18 @@
+
+<mat-card>
+  <form [formGroup]="form">
+    <div id="basic-properties">
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" />
+      </mat-form-field>
+    </div>
+    <div id="orders-editor" *ngIf="timetableReady">
+      <app-timetable-structural-editor
+        [timetableId]="id"
+        [formGroup]="form"
+        [formArray]="form.controls['orders']"
+      ></app-timetable-structural-editor>
+    </div>
+  </form>
+</mat-card>
+<button mat-button mat-raised-button	color="primary" (click)="save()">Save</button>

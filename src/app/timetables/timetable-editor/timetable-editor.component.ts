@@ -3,6 +3,7 @@ import {TimetableComponentBase} from '../timetable-component-base';
 import {TimetableService} from '../timetable.service';
 import {Observable, Subject} from 'rxjs';
 import {Order} from '../timetable';
+import {FormArray} from '@angular/forms';
 
 @Component({
   selector: 'app-timetable-editor',
@@ -10,7 +11,7 @@ import {Order} from '../timetable';
   styleUrls: ['./timetable-editor.component.scss']
 })
 export class TimetableEditorComponent extends TimetableComponentBase implements OnInit {
-  @Output() timetableChanged: Subject<any> = new Subject();
+  @Output() protected timetableChanged: Subject<any> = new Subject();
 
   constructor(api: TimetableService) {
     super(api);
@@ -32,3 +33,4 @@ export class TimetableEditorComponent extends TimetableComponentBase implements 
       .subscribe(() => this.timetableChanged.next());
   }
 }
+
