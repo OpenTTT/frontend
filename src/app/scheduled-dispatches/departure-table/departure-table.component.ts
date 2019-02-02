@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ScheduledDispatchService } from '../scheduled-dispatch.service';
 import {Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
 
 class ScheduleRow {
   station: string;
@@ -12,11 +13,12 @@ class ScheduleRow {
   templateUrl: './departure-table.component.html',
   styleUrls: ['./departure-table.component.scss']
 })
-export class DepartureTableComponent implements OnInit, OnChanges {
+export class DepartureTableComponent implements OnInit {
   @Input() dispatchId: number;
   @Input() numSchedules = 5;
   @Input() dispatchChange: Observable<any>;
 
+  isLoading = true;
   schedules: ScheduleRow[];
   displayedColumns: string[] = ['station'];
 
@@ -25,14 +27,12 @@ export class DepartureTableComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
-    this.dispatchChange.subscribe(this.refresh);
-  }
-
-  ngOnChanges(): void {
     this.refresh();
+    this.dispatchChange.subscribe(() => this.refresh());
   }
 
   private refresh() {
+    this.isLoading = true;
     this.api.getSchedulesForDispatchByStation(this.dispatchId, this.numSchedules).subscribe(schedules => {
       this.clearModel();
       schedules[0].departures.forEach((x, i) => this.displayedColumns.push(`departure${i}`));
@@ -45,6 +45,7 @@ export class DepartureTableComponent implements OnInit, OnChanges {
 
         return row;
       });
+      this.isLoading = false;
     });
   }
 

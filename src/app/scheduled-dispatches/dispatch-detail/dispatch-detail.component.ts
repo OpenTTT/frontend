@@ -3,6 +3,7 @@ import { ScheduledDispatch } from '../scheduled-dispatch';
 import { ActivatedRoute} from '@angular/router';
 import { ScheduledDispatchService } from '../scheduled-dispatch.service';
 import { ScheduleByStation } from '../schedule-by-station';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-dispatch-detail',
@@ -20,6 +21,7 @@ export class DispatchDetailComponent implements OnInit {
   dispatch: ScheduledDispatch;
   numberOfDeparturesDisplayed = 5;
   editMode = false;
+  dispatchChange: Subject<any> = new Subject();
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -30,5 +32,9 @@ export class DispatchDetailComponent implements OnInit {
 
   toggleEditMode() {
     this.editMode = !this.editMode;
+  }
+
+  onTimetableChanges() {
+    this.dispatchChange.next();
   }
 }

@@ -25,7 +25,9 @@
                              *ngSwitchCase="false"
         ></app-timetable-table>
         <app-timetable-editor [timetableId]="dispatch.timetableId"
-                              *ngSwitchCase="true">
+                              *ngSwitchCase="true"
+                              (timetableChanged)="onTimetableChanges()"
+        >
         </app-timetable-editor>
       </div>
     </div>
@@ -40,7 +42,10 @@
     <mat-card-title>Schedule</mat-card-title>
     <div id="schedule-table" *ngIf="dispatch; else scheduleLoading;">
 
-      <app-departure-table [numSchedules]="numberOfDeparturesDisplayed" [dispatchId]="id">
+      <app-departure-table [numSchedules]="numberOfDeparturesDisplayed"
+                           [dispatchId]="id"
+                           [dispatchChange]="dispatchChange.asObservable()"
+      >
       </app-departure-table>
 
     </div>

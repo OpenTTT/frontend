@@ -10,7 +10,7 @@ import {Order} from '../timetable';
   styleUrls: ['./timetable-editor.component.scss']
 })
 export class TimetableEditorComponent extends TimetableComponentBase implements OnInit {
-  @Output() timetableChanged: Subject<any>;
+  @Output() timetableChanged: Subject<any> = new Subject();
 
   constructor(api: TimetableService) {
     super(api);
@@ -21,7 +21,6 @@ export class TimetableEditorComponent extends TimetableComponentBase implements 
   }
 
   onStayingTimeChanged(order: Order, newValue: number) {
-    console.log('Update oder? ')
     order.stayingTime = newValue;
     this.api.updateOrder(this.timetableId, order)
       .subscribe(() => this.timetableChanged.next());
