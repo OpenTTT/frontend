@@ -48,14 +48,14 @@
       The schedule is loading...
     </ng-template>
 
-    <mat-form-field>
-      <input matInput
-             placeholder="# departures"
-             [(ngModel)]="numberOfDeparturesDisplayed"
+    <div>
+      Display # of departures:
+      <input [(ngModel)]="numberOfDeparturesDisplayed"
+             class="slim number"
              type="number" max="25" min="1"
              autofocus
       >
-    </mat-form-field>
+    </div>
   </mat-card>
 
 </div>
