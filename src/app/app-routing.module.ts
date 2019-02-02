@@ -5,7 +5,7 @@ import { StationsModule } from './stations/stations.module';
 import { DispatchListComponent } from './scheduled-dispatches/dispatch-list/dispatch-list.component';
 import { DispatchDetailComponent } from './scheduled-dispatches/dispatch-detail/dispatch-detail.component';
 import { HomeComponent } from './home/home.component';
-import {TimetableListComponent} from './timetables/timetable-lsit/timetable-list.component';
+import {TimetableListComponent} from './timetables/timetable-list/timetable-list.component';
 import {TimetableDetailComponent} from './timetables/timetable-detail/timetable-detail.component';
 
 const routes: Routes = [
