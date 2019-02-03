@@ -5,7 +5,7 @@ import {tap} from 'rxjs/operators';
 
 class ScheduleRow {
   station: string;
-  [key: string]: string;
+  [key: string]: any; // TODO: make this not be any, but structured data!
 }
 
 @Component({
@@ -40,7 +40,7 @@ export class DepartureTableComponent implements OnInit {
         const row = {station: s.station};
 
         s.departures.forEach((dep, idx) => {
-          row[`departure${idx}`] = dep.departure;
+          row[`departure${idx}`] = {a: dep.arrival, d: dep.departure};
         });
 
         return row;
