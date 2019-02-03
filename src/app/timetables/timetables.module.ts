@@ -9,6 +9,7 @@ import { TimetableDetailComponent } from './timetable-detail/timetable-detail.co
 import {ReactiveFormsModule} from '@angular/forms';
 import { TimetableStructuralEditorComponent } from './timetable-structural-editor/timetable-structural-editor.component';
 import {StationsModule} from '../stations/stations.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import {StationsModule} from '../stations/stations.module';
     TimetableEditorComponent,
     TimetableListComponent,
     TimetableDetailComponent,
-    TimetableStructuralEditorComponent
+    TimetableStructuralEditorComponent,
   ],
   imports: [
     CommonModule,
@@ -25,7 +26,7 @@ import {StationsModule} from '../stations/stations.module';
     MatAutocompleteModule,
     ReactiveFormsModule,
     StationsModule,
-
+    RouterModule,
   ],
   exports: [TimetableTableComponent, TimetableEditorComponent, TimetableListComponent]
 })

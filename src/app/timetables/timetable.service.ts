@@ -29,4 +29,8 @@ export class TimetableService extends OpenTTTService {
   updateTimetable(timetable: Timetable): Observable<Timetable> {
     return this.http.put<Timetable>(this.url(`timetable/${timetable.id}`), timetable);
   }
+
+  createTimetable(timetable: Timetable): Observable<Timetable> {
+    return this.http.post<Timetable>(this.url(`timetable/`), timetable)
+  }
 }

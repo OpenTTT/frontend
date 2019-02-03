@@ -32,6 +32,7 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
 
   ngOnInit() {
     this.orders = this.formArray.value;
+    console.log(this.orders);
     this.stationsApi.getAll().subscribe(
       stations => this.stations = this.filteredStations = stations.map(s => s.name)
     );
