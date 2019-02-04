@@ -1,10 +1,22 @@
 language: node_js
 node_js:
-  - "8"
+- '8'
 dist: trusty
 sudo: required
 before_script:
-  - npm install -g @angular/cli
+- npm install -g @angular/cli
 script:
-  - ng lint
-  - ng build
+- ng lint
+- ng build
+deploy:
+  provider: s3
+  access_key_id: AKIAIR2JH6XCJMMIZE5A
+  secret_access_key:
+    secure: ervJ15O0RCeC6uD9seJaRU7AaK6qN8FptDlgRy3rtgiz1C4I8D3yU8Y8Wh8ziE+UGLue2FlanBsBFfQkXSeumZg8JwsqC01PglaKmJLeUNq9PUP66SG4waIeH2FAu/KEBuH/DDSZA1DCqGOlngAVwOWVdbky4LLGeMC2qIgushMBFKc/4fJdfQJOm2UI+KwTqs8x9Cd+IKstPMXvA2MJjQECfOykS1Acw2F9g5WR0ohp78qdYxhJH4zCyQOeZh2aKBIqx8vHpc7l6jbkQGn80i6s0PwocltdeV88HQTKmoTZKTncPSgbx9rwFWK+S9HIv2EKnknCtrqhIOr9k8iDmWb23v+hWW5JAxBANqWF9obxuX1A7bkc1n5DcqiOy/4rBah7J0ND+hFzVixPSEgbwfdX1nPLODcudd6lIBRj1kTlVe7NltZWu0XFby+mFLcc7aO9qGaOIxQ8gMy12LZDiFTM71TrYAu8zN9orxmbmioCjN3/mzkQl3DLWB8o8Tj4LeaYrBwlWjIqD80T7X18LxD+cUMl1d0gqZUOmcDKsp/724vKVOSxwiSVwblKCuSQO3SUrQIrNRBafESNDgn8L4Dw3Lf5+EQqRDdle2MUI+wvHX8i9AsGZfJPRn32+GyXqTwSDRt5JtsxDrwreSsYMK13m6OJj6lc3YGATBU0Rg0=
+  bucket: openttt-frontend
+  local-dir: dist/openttt-frontend
+  upload-dir: "/"
+  acl: 'bucket_owner_full_control'
+  skip_cleanup: true
+  on:
+    repo: opentttimetables/frontend
