@@ -6,9 +6,9 @@
     <h1>OpenTTT</h1>
     <div>Currently serving...</div>
     <div>...a total of <strong>{{ stats?.stations > 0 ? stats.stations : '∞' }}</strong> stations...</div>
-    <div>...used in <strong>{{ stats?.totalTimetables > 0 ? stats.stations : '∞' }}</strong> timetables...</div>
-    <div>...which appear in <strong>{{ stats?.scheduledDispatches > 0 ? stats.stations : '∞' }}</strong> scheduled dispatches...</div>
-    <div>...that total <strong>{{ stats?.totalDepartures > 0 ? stats.stations : '∞' }}</strong> departures...</div>
+    <div>...used in <strong>{{ stats?.totalTimetables > 0 ? stats.totalTimetables : '∞' }}</strong> timetables...</div>
+    <div>...which appear in <strong>{{ stats?.scheduledDispatches > 0 ? stats.scheduledDispatches : '∞' }}</strong> scheduled dispatches...</div>
+    <div>...that total <strong>{{ stats?.totalDepartures > 0 ? stats.totalDepartures: '∞' }}</strong> departures...</div>
     <div>...and much more!</div>
   </div>
 </mat-card>
