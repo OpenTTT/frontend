@@ -1,4 +1,4 @@
-export class Stats {
+export interface Stats {
   stations: number;
   scheduledDispatches: number;
   totalDepartures: number;
