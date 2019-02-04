@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ScheduledDispatchService } from '../scheduled-dispatch.service';
+import { ScheduledDispatchService } from '../../shared/services/scheduled-dispatch.service';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { OpenTTTService } from '../shared/openttt-service';
+import { OpenTTTService } from './openttt-service';
 import { HttpClient } from '@angular/common/http';
-import {Order, Timetable} from './timetable';
+import {Order, Timetable} from '../model/timetable';
 import { Observable } from 'rxjs';
 
 @Injectable({

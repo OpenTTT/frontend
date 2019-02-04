@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder} from '@angular/forms';
-import {TimetableService} from '../timetable.service';
+import {TimetableService} from '../../shared/services/timetable.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({

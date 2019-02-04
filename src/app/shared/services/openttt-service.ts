@@ -1,4 +1,4 @@
-import { environment } from '../../environments/environment';
+import { environment } from '@envs/environment';
 
 export class OpenTTTService {
   host = environment.host;

@@ -12,7 +12,6 @@ import {
   MatOptionModule,
   MatSelectModule
 } from '@angular/material';
-import {StationsService} from './stations.service';
 
 @NgModule({
   declarations: [StationListComponent, StationCreationComponent],
@@ -30,8 +29,5 @@ import {StationsService} from './stations.service';
   exports: [
     StationListComponent,
   ],
-  providers: [
-    StationsService,
-  ]
 })
 export class StationsModule { }

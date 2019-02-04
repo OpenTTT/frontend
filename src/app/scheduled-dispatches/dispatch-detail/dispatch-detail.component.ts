@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { ScheduledDispatch } from '../scheduled-dispatch';
+import { ScheduledDispatch } from '../../shared/model/scheduled-dispatch';
 import { ActivatedRoute} from '@angular/router';
-import { ScheduledDispatchService } from '../scheduled-dispatch.service';
+import { ScheduledDispatchService } from '../../shared/services/scheduled-dispatch.service';
 import {Subject} from 'rxjs';
 import {FormArray, FormBuilder} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';

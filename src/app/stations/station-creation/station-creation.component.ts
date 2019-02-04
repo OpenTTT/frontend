@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { StationsService } from '../stations.service';
-import { Station } from '../station';
+import { StationsService } from '../../shared/services/stations.service';
+import { Station } from '../../shared/model/station';
 import { Subject } from 'rxjs';
 
 @Component({

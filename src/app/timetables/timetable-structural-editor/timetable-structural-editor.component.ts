@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TimetableEditorComponent} from '../timetable-editor/timetable-editor.component';
-import {TimetableService} from '../timetable.service';
+import {TimetableService} from '../../shared/services/timetable.service';
 import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {StationsService} from '../../stations/stations.service';
-import {Station} from '../../stations/station';
+import {StationsService} from '../../shared/services/stations.service';
+import {Station} from '../../shared/model/station';
 import {Subscription} from 'rxjs';
 
 @Component({

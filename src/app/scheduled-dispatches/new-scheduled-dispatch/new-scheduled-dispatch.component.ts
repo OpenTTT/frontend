@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import {Timetable} from '../../timetables/timetable';
-import {TimetableService} from '../../timetables/timetable.service';
-import {ScheduledDispatchService} from '../scheduled-dispatch.service';
+import {Timetable} from '../../shared/model/timetable';
+import {TimetableService} from '../../shared/services/timetable.service';
+import {ScheduledDispatchService} from '../../shared/services/scheduled-dispatch.service';
 import {Router} from '@angular/router';
 
 @Component({

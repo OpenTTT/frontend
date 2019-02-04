@@ -1,8 +1,8 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {TimetableComponentBase} from '../timetable-component-base';
-import {TimetableService} from '../timetable.service';
+import {TimetableService} from '../../shared/services/timetable.service';
 import {Observable, Subject} from 'rxjs';
-import {Order} from '../timetable';
+import {Order} from '../../shared/model/timetable';
 import {FormArray} from '@angular/forms';
 
 @Component({

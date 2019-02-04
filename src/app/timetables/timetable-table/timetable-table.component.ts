@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Order, Timetable} from '../timetable';
-import {TimetableService} from '../timetable.service';
+import {Order, Timetable} from '../../shared/model/timetable';
+import {TimetableService} from '../../shared/services/timetable.service';
 import {TimetableComponentBase} from '../timetable-component-base';
 
 @Component({

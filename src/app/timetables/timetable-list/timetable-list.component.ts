@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {TimetableService} from '../timetable.service';
-import {Timetable} from '../timetable';
+import {TimetableService} from '../../shared/services/timetable.service';
+import {Timetable} from '../../shared/model/timetable';
 
 @Component({
   selector: 'app-timetable-lsit',

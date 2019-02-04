@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { OpenTTTService } from '../shared/openttt-service';
+import { OpenTTTService } from './openttt-service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ScheduledDispatch } from './scheduled-dispatch';
-import { Schedule } from './schedule';
-import { ScheduleByStation } from './schedule-by-station';
+import { ScheduledDispatch } from '../model/scheduled-dispatch';
+import { Schedule } from '../model/schedule';
+import { ScheduleByStation } from '../model/schedule-by-station';
 
 @Injectable({
   providedIn: 'root'
