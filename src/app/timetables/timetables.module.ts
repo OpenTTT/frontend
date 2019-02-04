@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TimetableTableComponent } from './timetable-table/timetable-table.component';
 import {SharedModule} from '../shared/shared.module';
 import {
-  MatAutocompleteModule,
+  MatAutocompleteModule, MatButtonModule,
   MatCardModule, MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -35,6 +35,7 @@ import {RouterModule} from '@angular/router';
     MatCardModule,
     MatIconModule,
     MatFormFieldModule,
+    MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
     SharedModule,

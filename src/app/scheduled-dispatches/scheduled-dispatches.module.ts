@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DispatchListComponent } from './dispatch-list/dispatch-list.component';
 import { SharedModule } from '../shared/shared.module';
 import {
+  MatButtonModule,
   MatCardModule,
   MatIconModule,
   MatListModule,
@@ -28,6 +29,7 @@ import { NewScheduledDispatchComponent } from './new-scheduled-dispatch/new-sche
     MatProgressBarModule,
     MatIconModule,
     MatCardModule,
+    MatButtonModule,
     TimetablesModule,
   ],
   exports: [DispatchListComponent, DispatchDetailComponent, NewScheduledDispatchComponent],
