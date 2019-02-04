@@ -7,7 +7,7 @@ before_script:
 - npm install -g @angular/cli
 script:
 - ng lint
-- ng build
+- ng build --prod
 deploy:
   provider: s3
   access_key_id: AKIAIR2JH6XCJMMIZE5A
