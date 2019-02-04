@@ -1,6 +1,6 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="submitValue()">
   <mat-form-field>
-    <input #stationName matInput placeholder="Station Name" formControlName="name" (blur)="submitValue()">
+    <input #stationName matInput placeholder="Station Name" formControlName="name">
   </mat-form-field>
   <button mat-icon-button (click)="submitValue()">
     <mat-icon>add</mat-icon>
