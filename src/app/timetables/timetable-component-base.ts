@@ -5,17 +5,16 @@ import {Order, Timetable} from './timetable';
 export class TimetableComponentBase {
 
   constructor(
-    protected api: TimetableService,
+    public api: TimetableService,
   ) { }
 
 
-  @Input()
-  protected timetableId: number;
-  protected timetable: Timetable;
-  protected orders: Order[];
-  protected displayedColumns = ['destination', 'stayingTime', 'travelingTime'];
+  @Input() timetableId: number;
+  timetable: Timetable;
+  orders: Order[];
+  displayedColumns = ['destination', 'stayingTime', 'travelingTime'];
 
-  protected loadTimetable() {
+  public loadTimetable() {
     this.api.getTimetable(this.timetableId).subscribe(
       timetable => {
         this.timetable = timetable;

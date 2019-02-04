@@ -11,7 +11,7 @@ import {FormArray} from '@angular/forms';
   styleUrls: ['./timetable-editor.component.scss']
 })
 export class TimetableEditorComponent extends TimetableComponentBase implements OnInit {
-  @Output() protected timetableChanged: Subject<any> = new Subject();
+  @Output() timetableChanged: Subject<any> = new Subject();
 
   constructor(api: TimetableService) {
     super(api);
