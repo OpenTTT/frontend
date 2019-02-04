@@ -9,6 +9,7 @@ import { StationsModule } from './stations/stations.module';
 import { ScheduledDispatchesModule } from './scheduled-dispatches/scheduled-dispatches.module';
 import { HomeComponent } from './home/home.component';
 import {TimetablesModule} from './timetables/timetables.module';
+import {MatCardModule, MatIconModule, MatListModule, MatSidenavModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,10 @@ import {TimetablesModule} from './timetables/timetables.module';
   ],
   imports: [
     BrowserModule,
+    MatCardModule,
+    MatListModule,
+    MatIconModule,
+    MatSidenavModule,
     SharedModule,
     AppRoutingModule,
     BrowserAnimationsModule,
