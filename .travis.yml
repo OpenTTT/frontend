@@ -3,11 +3,21 @@ node_js:
 - '8'
 dist: trusty
 sudo: required
+
+addons:
+  sonarcloud:
+    organization: "proustibat-github"
+    token:
+      secure: $SONAR_TOKEN
+
 before_script:
 - npm install -g @angular/cli
+
 script:
 - ng lint
 - ng build --prod
+- bash sonar.sh
+
 deploy:
   provider: s3
   access_key_id: AKIAIR2JH6XCJMMIZE5A
