@@ -20,5 +20,5 @@ function readJson {
 
 VERSION=`readJson package.json version` || exit 1;
 
-sonar-scanner -X -Dsonar.projectVersion=$VERSION
+sonar-scanner -X -Dsonar.projectVersion=$VERSION -Dsonar.projectKey=openttt:frontend -Dsonar.sources=src
 
