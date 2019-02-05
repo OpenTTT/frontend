@@ -6,7 +6,7 @@ sudo: required
 
 addons:
   sonarcloud:
-    organization: "proustibat-github"
+    organization: "openttt"
     token:
       secure: $SONAR_TOKEN
 
