@@ -20,6 +20,6 @@ export class StationsService extends OpenTTTService {
   }
 
   create(station: Station): Observable<Station> {
-    return this.http.post<Station>(this.url('destination/'), station);
+    return this.http.post<Station>(this.url('destinations/'), station);
   }
 }

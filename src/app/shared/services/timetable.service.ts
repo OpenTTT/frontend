@@ -14,11 +14,11 @@ export class TimetableService extends OpenTTTService {
   }
 
   getTimetable(id: number): Observable<Timetable> {
-    return this.http.get<Timetable>(this.url(`timetable/${id}`));
+    return this.http.get<Timetable>(this.url(`timetables/${id}`));
   }
 
   updateOrder(timetableId: number, order: Order): Observable<Order> {
-    const url = this.url(`timetable/${timetableId}/order/${order.id}`);
+    const url = this.url(`timetables/${timetableId}/orders/${order.id}`);
     return this.http.put<Order>(url, order);
   }
 
@@ -27,10 +27,10 @@ export class TimetableService extends OpenTTTService {
   }
 
   updateTimetable(timetable: Timetable): Observable<Timetable> {
-    return this.http.put<Timetable>(this.url(`timetable/${timetable.id}`), timetable);
+    return this.http.put<Timetable>(this.url(`timetables/${timetable.id}`), timetable);
   }
 
   createTimetable(timetable: Timetable): Observable<Timetable> {
-    return this.http.post<Timetable>(this.url(`timetable/`), timetable);
+    return this.http.post<Timetable>(this.url(`timetables/`), timetable);
   }
 }

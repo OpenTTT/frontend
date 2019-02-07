@@ -16,29 +16,29 @@ export class ScheduledDispatchService extends OpenTTTService {
   }
 
   getDispatches(): Observable<ScheduledDispatch[]> {
-    return this.http.get<ScheduledDispatch[]>(this.url('scheduled-dispatch/'));
+    return this.http.get<ScheduledDispatch[]>(this.url('scheduled-dispatches/'));
   }
 
   getDispatch(id: number): Observable<ScheduledDispatch> {
-    return this.http.get<ScheduledDispatch>(this.url(`scheduled-dispatch/${id}`));
+    return this.http.get<ScheduledDispatch>(this.url(`scheduled-dispatches/${id}`));
   }
 
   getSchedulesForDispatch(id: number): Observable<Schedule[]> {
     // We always get five from the backend...
-    return this.http.get<Schedule[]>(this.url(`scheduled-dispatch/${id}/departures`));
+    return this.http.get<Schedule[]>(this.url(`scheduled-dispatches/${id}/departures`));
   }
 
   updateScheduledDispatch(dispatch: ScheduledDispatch): Observable<ScheduledDispatch> {
-    return this.http.put<ScheduledDispatch>(this.url(`scheduled-dispatch/${dispatch.id}`), dispatch);
+    return this.http.put<ScheduledDispatch>(this.url(`scheduled-dispatches/${dispatch.id}`), dispatch);
   }
 
   createScheduledDispatch(dispatch: ScheduledDispatch): Observable<ScheduledDispatch> {
-    return this.http.post<ScheduledDispatch>(this.url('scheduled-dispatch/'), dispatch);
+    return this.http.post<ScheduledDispatch>(this.url('scheduled-dispatches/'), dispatch);
   }
 
   getSchedulesForDispatchByStation(id: number, numberOfDepartures: number = 5): Observable<ScheduleByStation[]> {
     return this.http.get<ScheduleByStation[]>(
-      this.url(`scheduled-dispatch/${id}/departures-by-station`),
+      this.url(`scheduled-dispatches/${id}/departures-by-station`),
       {params: {numberOfDepartures: numberOfDepartures.toString()}}
     );
   }
