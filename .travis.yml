@@ -28,5 +28,3 @@ deploy:
   local-dir: dist/openttt-frontend
   acl: 'bucket_owner_full_control'
   skip_cleanup: true
-  on:
-    repo: opentttimetables/frontend
