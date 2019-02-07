@@ -10,7 +10,6 @@ import {
   MatOptionModule,
   MatProgressBarModule,
   MatSelectModule,
-  MatTableModule
 } from '@angular/material';
 import { DispatchDetailComponent } from './dispatch-detail/dispatch-detail.component';
 import { DepartureTableComponent } from './departure-table/departure-table.component';
@@ -23,7 +22,6 @@ import { NewScheduledDispatchComponent } from './new-scheduled-dispatch/new-sche
     CommonModule,
     SharedModule,
     MatListModule,
-    MatTableModule,
     MatSelectModule,
     MatOptionModule,
     MatProgressBarModule,
@@ -35,3 +33,4 @@ import { NewScheduledDispatchComponent } from './new-scheduled-dispatch/new-sche
   exports: [DispatchListComponent, DispatchDetailComponent, NewScheduledDispatchComponent],
 })
 export class ScheduledDispatchesModule { }
+  

@@ -1,12 +1,22 @@
 // General table styling
+$borderColor: #e0e0e0;
 table {
   width: 100%;
-
-  td {
-    text-align: center;
-    border-left: 1px solid #e0e0e0;
+  border-bottom: 1px solid $borderColor;
+  tr {
+    width: 100%;
     &:last-child {
-      border-right: 1px solid #e0e0e0;
+      border-bottom: 1px solid $borderColor;
+    }
+    td, th {
+      text-align: center;
+      border-top: 1px solid $borderColor;
+      border-left: 1px solid $borderColor;
+
+
+      &:last-child {
+        border-right: 1px solid $borderColor;
+      }
     }
   }
 

@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ScheduledDispatchService } from '../../shared/services/scheduled-dispatch.service';
+import { Component, Input, OnInit} from '@angular/core';
+import { ScheduledDispatchService } from '@shared/services/scheduled-dispatch.service';
 import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import {ScheduleByStation} from '@shared/model/schedule-by-station';
 
 class ScheduleRow {
   station: string;
@@ -19,8 +19,7 @@ export class DepartureTableComponent implements OnInit {
   @Input() dispatchChange: Observable<any>;
 
   isLoading = true;
-  schedules: ScheduleRow[];
-  displayedColumns: string[] = ['station'];
+  schedules: ScheduleByStation[];
 
   constructor(
     private api: ScheduledDispatchService,
@@ -33,25 +32,10 @@ export class DepartureTableComponent implements OnInit {
 
   private refresh() {
     this.isLoading = true;
-    this.api.getSchedulesForDispatchByStation(this.dispatchId, this.numSchedules).subscribe(schedules => {
-      this.clearModel();
-      schedules[0].departures.forEach((x, i) => this.displayedColumns.push(`departure${i}`));
-      this.schedules = schedules.map((s) => {
-        const row = {station: s.station};
-
-        s.departures.forEach((dep, idx) => {
-          row[`departure${idx}`] = {a: dep.arrival, d: dep.departure};
-        });
-
-        return row;
+    this.api.getSchedulesForDispatchByStation(this.dispatchId, this.numSchedules)
+      .subscribe(schedules => {
+        this.schedules = schedules;
+        this.isLoading = false;
       });
-      this.isLoading = false;
-    });
   }
-
-  clearModel() {
-    this.schedules = [];
-    this.displayedColumns = ['station'];
-  }
-
 }
