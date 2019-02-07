@@ -3,7 +3,7 @@
     <h1>Frontend</h1>
 </p>
 
-[![Build Status](https://travis-ci.org/opentttimetables/frontend.svg?branch=master)](https://travis-ci.org/opentttimetables/frontend)
+[![Build Status](https://travis-ci.org/OpenTTT/frontend.svg?branch=master)](https://travis-ci.org/OpenTTT/frontend)
 
 The frontend to the [OpenTTT timetabling-api](https://github.com/openttt/timetabling-api). 
 It is part of OpenTTT, a suite of applications to aid in timetabling [OpenTTD](https://www.openttd.org) trains.
