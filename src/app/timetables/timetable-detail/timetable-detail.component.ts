@@ -61,7 +61,7 @@ export class TimetableDetailComponent implements OnInit {
     if (this.isNewTimetable) {
       observable = this.api.createTimetable(timetable);
     } else {
-      observable = this.api.updateTimetable(this.form.value)
+      observable = this.api.updateTimetable(this.form.value);
     }
 
     // TODO error handling?
