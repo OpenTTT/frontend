@@ -1,36 +1,32 @@
-<table mat-table [dataSource]="orders">
-  <ng-container matColumnDef="destination">
-    <th mat-header-cell *matHeaderCellDef>Station</th>
-    <td mat-cell *matCellDef="let order"> <strong>{{order.destination}}</strong> </td>
-  </ng-container>
-
-  <ng-container matColumnDef="stayingTime">
-    <th mat-header-cell *matHeaderCellDef>Stay time</th>
-    <td mat-cell *matCellDef="let order">
-      <input type="number"
-             class="slim number"
-             [value]="order.stayingTime"
-             (change)="onStayingTimeChanged(order, $event.target.value)"
-             min="0"
-             max="256"
-      >
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="travelingTime">
-    <th mat-header-cell *matHeaderCellDef>Travel time</th>
-    <td mat-cell *matCellDef="let order">
-      <input
-        type="number"
-        class="slim number"
-        [value]="order.travelingTime"
-        (change)="onTravelingTimeChanged(order, $event.target.value)"
-        min="0"
-        max="256"
-      >
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns; let even = even" [ngClass]="{even: even}"></tr>
+<table border="0" cellspacing="0" cellpadding="0">
+  <thead>
+    <tr>
+      <th>Station</th>
+      <th>Staying Time</th>
+      <th>Travel Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders; let i = index; let even = even" [ngClass]="{even: even}">
+      <td>{{ order.destination }}</td>
+      <td>
+        <input type="number"
+               class="slim number"
+               [value]="order.stayingTime"
+               (change)="onStayingTimeChanged(order, $event.target.value)"
+               min="0"
+               max="256"
+        >
+      </td>
+      <td>
+        <input type="number"
+               class="slim number"
+                [value]="order.travelingTime"
+                (change)="onTravelingTimeChanged(order, $event.target.value)"
+                min="0"
+                max="256"
+        >
+      </td>
+    </tr>
+  </tbody>
 </table>

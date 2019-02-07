@@ -12,7 +12,6 @@ export class TimetableComponentBase {
   @Input() timetableId: number;
   timetable: Timetable;
   orders: Order[];
-  displayedColumns = ['destination', 'stayingTime', 'travelingTime'];
 
   public loadTimetable() {
     this.api.getTimetable(this.timetableId).subscribe(

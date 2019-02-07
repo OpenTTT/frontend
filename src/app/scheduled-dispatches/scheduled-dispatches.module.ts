@@ -33,4 +33,4 @@ import { NewScheduledDispatchComponent } from './new-scheduled-dispatch/new-sche
   exports: [DispatchListComponent, DispatchDetailComponent, NewScheduledDispatchComponent],
 })
 export class ScheduledDispatchesModule { }
-  
+
