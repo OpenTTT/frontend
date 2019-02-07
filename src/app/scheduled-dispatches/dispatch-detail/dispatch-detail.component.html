@@ -35,7 +35,8 @@
                             (timetableChanged)="onTimetableChanges()"
       >
       </app-timetable-editor>
-      If you want to edit the stations this timetable goes to, you need to go to the <a [routerLink]="['/timetables', dispatch?.timetableId]">Timetable Editor</a>
+
+      <a mat-raised-button [routerLink]="['/timetables', dispatch?.timetableId]">Open full timetable editor</a>
     </div>
     <ng-template #timetableLoading>
       The timetable is loading...
