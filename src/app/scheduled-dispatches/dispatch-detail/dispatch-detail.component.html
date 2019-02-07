@@ -31,21 +31,21 @@
   <mat-card>
     <mat-card-title>Timetable</mat-card-title>
     <div id="timetable-table" *ngIf="dispatch; else timetableLoading">
-      <app-timetable-editor [timetableId]="dispatch.timetableId"
+      <app-timetable-editor [timetableId]="dispatch?.timetableId"
                             (timetableChanged)="onTimetableChanges()"
       >
       </app-timetable-editor>
+      If you want to edit the stations this timetable goes to, you need to go to the <a [routerLink]="['/timetables', dispatch?.timetableId]">Timetable Editor</a>
     </div>
     <ng-template #timetableLoading>
       The timetable is loading...
     </ng-template>
 
-    If you want to edit the stations this timetable goes to, you need to go to the <a [routerLink]="['/timetables', dispatch.timetableId]">Timetable Editor</a>
   </mat-card>
 
   <mat-card>
     <mat-card-title>Schedule</mat-card-title>
-    <div id="schedule-table" *ngIf="dispatch; else scheduleLoading;">
+    <div id="schedule-table" *ngIf="dispatch != null; else scheduleLoading;">
 
       <app-departure-table [numSchedules]="numberOfDeparturesDisplayed.value"
                            [dispatchId]="id"

@@ -18,8 +18,9 @@ export class DispatchDetailComponent implements OnInit {
     private api: ScheduledDispatchService,
     private fb: FormBuilder,
   ) { }
+
   id = -1;
-  dispatch: ScheduledDispatch;
+  dispatch: ScheduledDispatch = null;
   editMode = true;
   dispatchChange: Subject<any> = new Subject();
   scheduleDispatchForm = this.fb.group({
