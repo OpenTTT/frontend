@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TimetableEditorComponent} from '../timetable-editor/timetable-editor.component';
-import {TimetableService} from '../../shared/services/timetable.service';
-import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {StationsService} from '../../shared/services/stations.service';
-import {Station} from '../../shared/model/station';
+import {TimetableService} from '@shared/services/timetable.service';
+import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {StationsService} from '@shared/services/stations.service';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -19,32 +18,35 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
     private stationsApi: StationsService,
   ) {
     super(api);
-    this.displayedColumns.push('additionalControls');
   }
 
   @Input() formGroup: FormGroup;
   @Input() formArray: FormArray;
+  newOrderForm = this.fb.group({
+    'destination': ['', Validators.required],
+    'stayingTime': ['', Validators.required],
+    'travelingTime': ['', Validators.required],
+  });
 
+  // TODO: Autocomplete fun. This should be refactored into it's own component!
   filteredStations: string[] = [];
   stations: string[] = [];
-  focusedControl: FormControl;
+  focusedControl: AbstractControl;
   focusedControlSubscription: Subscription;
 
   ngOnInit() {
     this.orders = this.formArray.value;
-    console.log(this.orders);
     this.stationsApi.getAll().subscribe(
       stations => this.stations = this.filteredStations = stations.map(s => s.name)
     );
   }
 
-  onFocusChanged(rowIndex: number) {
+  onFocusChanged(control: AbstractControl) {
     if (this.focusedControlSubscription) {
       this.focusedControlSubscription.unsubscribe();
     }
 
-    const focusedGroup = this.formArray.controls[rowIndex] as FormGroup;
-    this.focusedControl = focusedGroup.controls['destination'] as FormControl;
+    this.focusedControl = control;
     this.focusedControl.valueChanges.subscribe(
       value => this.filteredStations = this.stations.filter(s => s.startsWith(value))
     );
@@ -75,21 +77,24 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
     this.refreshBoundOrders();
   }
 
-  onSaveRow() {
-    // TODO: Should be using validators
-    const value = this.formArray.at(this.formArray.length - 1).value;
-    if (value.destination && value.stayingTime && value.travelingTime) {
+  addNewStation() {
+    if (this.newOrderForm.valid) {
+      const newRow = this.newOrderForm.value;
       this.formArray.push(this.fb.group({
-        'id': [-1],
-        'destination': [''],
-        'stayingTime': [''],
-        'travelingTime': ['']
+        'destination': newRow['destination'],
+        'stayingTime': newRow['stayingTime'],
+        'travelingTime': newRow['travelingTime']
       }));
+      this.newOrderForm.setValue({
+        'destination': '',
+        'stayingTime': '',
+        'travelingTime': '',
+      });
+      this.newOrderForm.markAsPristine();
+      this.refreshBoundOrders();
     }
-
-    this.refreshBoundOrders();
   }
-  // TODO: Can the table take the formArray directly as a data source or will it explode?
+
   refreshBoundOrders() {
     this.orders = this.formArray.value;
   }

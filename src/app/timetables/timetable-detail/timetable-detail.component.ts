@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormArray, FormBuilder} from '@angular/forms';
+import {FormArray, FormBuilder, Validators} from '@angular/forms';
 import {TimetableService} from '../../shared/services/timetable.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -17,79 +17,54 @@ export class TimetableDetailComponent implements OnInit {
     private route: ActivatedRoute,
   ) { }
 
-  // TODO: disabling type safety
-  id: number|string;
-  timetableReady = false;
+  id: number;
+  isNewTimetable = false;
   form = this.fb.group({
     'id': [''],
-    'name': ['Unknown Timetable'],
-    'orders': this.fb.array([
-    ])
+    'name': ['', Validators.required],
+    'orders': this.fb.array([], Validators.minLength(2)),
   });
 
-  // TODO absolute clusterfuck
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = params['id'];
-      const ordersArray = this.form.controls['orders'] as FormArray;
-
-      if (this.id !== 'new') {
-        this.api.getTimetable(this.id as number).subscribe(
-          timetable => {
-            this.form.patchValue(timetable);
-
-            for (const order of timetable.orders) {
-              ordersArray.push(this.fb.group({
-                'id': [order.id],
-                'destination': [order.destination],
-                'travelingTime': [order.travelingTime],
-                'stayingTime': [order.stayingTime],
-              }));
-            }
-            ordersArray.push(this.fb.group({
-              'id': [-1],
-              'destination': [''],
-              'travelingTime': [''],
-              'stayingTime': [''],
-            }));
-            this.timetableReady = true;
-          }
-        );
+      const id = params['id'];
+      if (id !== 'new') {
+        this.id = id;
+        this.prepareOrders();
       } else {
-        ordersArray.push(this.fb.group({
-          'id': [-1],
-          'destination': [''],
-          'travelingTime': [''],
-          'stayingTime': [''],
-        }));
-        this.timetableReady = true;
+        this.isNewTimetable = true;
       }
     });
   }
 
-  // TODO: Do this with a validator instead
-  isValidTimetable(): boolean {
-    return true; // TODO: stub
+  private prepareOrders() {
+    const ordersArray = this.form.controls['orders'] as FormArray;
+    this.api.getTimetable(this.id).subscribe(
+      timetable => {
+        this.form.patchValue(timetable);
+
+        for (const order of timetable.orders) {
+          ordersArray.push(this.fb.group({
+            'id': [order.id],
+            'destination': [order.destination],
+            'travelingTime': [order.travelingTime],
+            'stayingTime': [order.stayingTime],
+          }));
+        }
+      }
+    );
   }
 
   save() {
-    if (this.isValidTimetable()) {
-      const timetable = this.form.value;
-      // Remove new order item, TODO to be removed
-      timetable.orders.pop();
-      if (this.id !== 'new') {
-        this.api.updateTimetable(timetable)
-          .subscribe(() => this.router.navigate(['/timetables']));
-      } else {
-        timetable['id'] = null;
-        timetable.orders.map(order => {
-          order['id'] = null;
-          return order;
-        });
-        this.api.createTimetable(timetable)
-          .subscribe(() => this.router.navigate(['/timetables']));
-
-      }
+    let observable;
+    const timetable = this.form.value;
+    if (this.isNewTimetable) {
+      observable = this.api.createTimetable(timetable);
+    } else {
+      observable = this.api.updateTimetable(this.form.value)
     }
+
+    // TODO error handling?
+    observable.subscribe(() => this.router.navigate(['/timetables']));
   }
 }

@@ -1,4 +1,112 @@
+<mat-autocomplete #stationsAutocomplete>
+  <mat-option *ngFor="let option of filteredStations" [value]="option">
+    {{ option }}
+  </mat-option>
+</mat-autocomplete>
+
 <div [formGroup]="formGroup">
+  <table border="0" cellspacing="0" cellpadding="0" formArrayName="orders">
+    <thead>
+      <tr>
+        <th>Station</th>
+        <th>Staying Time</th>
+        <th>Departure Time</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let _ of formArray.controls; let i = index">
+        <td>
+          <mat-form-field [formGroupName]="i">
+            <input matInput
+                   type="text"
+                   formControlName="destination"
+                   (focus)="onFocusChanged(formArray.controls[i].controls['destination'])"
+                   [matAutocomplete]="stationsAutocomplete"
+            >
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field [formGroupName]="i">
+            <input type="number"
+                   matInput
+                   [value]="formArray.value[i].stayingTime"
+                   min="0"
+                   max="256"
+                   formControlName="stayingTime"
+            >
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field [formGroupName]="i">
+            <input type="number"
+                   matInput
+                   [value]="formArray.value[i].travelingTime"
+                   min="0"
+                   max="256"
+                   formControlName="travelingTime"
+            >
+          </mat-form-field>
+        </td>
+        <td>
+          <small *ngIf="!last">
+            <button mat-icon-button (click)="onRowUp(i)" [ngClass]="{hidden: i == 0}">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+
+            <button mat-icon-button (click)="onRowDown(i)" [ngClass]="{hidden: (i == orders.length-1)}">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+
+            <button mat-icon-button (click)="onRowDeleted(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </small>
+        </td>
+      </tr>
+      <tr [formGroup]="newOrderForm">
+        <td>
+          <mat-form-field>
+            <input matInput
+                   type="text"
+                   formControlName="destination"
+                   (focus)="onFocusChanged(newOrderForm.controls['destination'])"
+                   [matAutocomplete]="stationsAutocomplete"
+            >
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input type="number"
+                   matInput
+                   min="0"
+                   max="256"
+                   formControlName="stayingTime"
+            >
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input type="number"
+                   matInput
+                   min="0"
+                   max="256"
+                   formControlName="travelingTime"
+                   (blur)="addNewStation()"
+            >
+          </mat-form-field>
+        </td>
+        <td>
+          <button mat-icon-button (click)="addNewStation()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--
   <table mat-table [dataSource]="orders" formArrayName="orders">
     <ng-container matColumnDef="destination">
       <th mat-header-cell *matHeaderCellDef>Station</th>
@@ -77,5 +185,4 @@
         *matRowDef="let row; columns: displayedColumns; let even = even; let i = index"
         [ngClass]="{even: even}"
     ></tr>
-  </table>
-</div>
+-->

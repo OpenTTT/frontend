@@ -31,22 +31,16 @@
   <mat-card>
     <mat-card-title>Timetable</mat-card-title>
     <div id="timetable-table" *ngIf="dispatch; else timetableLoading">
-      <div [ngSwitch]="editMode">
-        <app-timetable-table [timetableId]="dispatch.timetableId"
-                             *ngSwitchCase="false"
-        ></app-timetable-table>
-        <app-timetable-editor [timetableId]="dispatch.timetableId"
-                              *ngSwitchCase="true"
-                              (timetableChanged)="onTimetableChanges()"
-        >
-        </app-timetable-editor>
-      </div>
+      <app-timetable-editor [timetableId]="dispatch.timetableId"
+                            (timetableChanged)="onTimetableChanges()"
+      >
+      </app-timetable-editor>
     </div>
     <ng-template #timetableLoading>
       The timetable is loading...
     </ng-template>
 
-    <button mat-raised-button color="primary" (click)="toggleEditMode()"><mat-icon>edit</mat-icon> Edit</button>
+    If you want to edit the stations this timetable goes to, you need to go to the <a [routerLink]="['/timetables', dispatch.timetableId]">Timetable Editor</a>
   </mat-card>
 
   <mat-card>

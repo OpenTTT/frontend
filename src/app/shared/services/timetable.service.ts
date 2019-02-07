@@ -23,7 +23,7 @@ export class TimetableService extends OpenTTTService {
   }
 
   getTimetables(): Observable<Timetable[]> {
-    return this.http.get<Timetable[]>(this.url('timetables/'));
+    return this.http.get<Timetable[]>(this.url('timetables'));
   }
 
   updateTimetable(timetable: Timetable): Observable<Timetable> {
@@ -31,6 +31,6 @@ export class TimetableService extends OpenTTTService {
   }
 
   createTimetable(timetable: Timetable): Observable<Timetable> {
-    return this.http.post<Timetable>(this.url(`timetables/`), timetable);
+    return this.http.post<Timetable>(this.url(`timetables`), timetable);
   }
 }

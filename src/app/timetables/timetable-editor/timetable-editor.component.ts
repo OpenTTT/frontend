@@ -1,9 +1,8 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {TimetableComponentBase} from '../timetable-component-base';
-import {TimetableService} from '../../shared/services/timetable.service';
-import {Observable, Subject} from 'rxjs';
-import {Order} from '../../shared/model/timetable';
-import {FormArray} from '@angular/forms';
+import {TimetableService} from '@shared/services/timetable.service';
+import {Subject} from 'rxjs';
+import {Order} from '@shared/model/timetable';
 
 @Component({
   selector: 'app-timetable-editor',
