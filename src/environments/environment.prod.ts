@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  host: '18.185.92.210:8080',
+  host: 'http://18.185.92.210:8080',
 };
