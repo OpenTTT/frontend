@@ -1,6 +1,11 @@
 <mat-card>
   <mat-nav-list>
     <a mat-list-item *ngFor="let station of stations">
+      <span class="station-type" [ngSwitch]="station.destinationType">
+        <mat-icon *ngSwitchCase="'STATION'">location_city</mat-icon>
+        <mat-icon *ngSwitchCase="'WAYPOINT'">swap_horiz</mat-icon>
+        <mat-icon *ngSwitchCase="'DEPOT'">build</mat-icon>
+      </span>
       <span class="station-name">{{ station.name }}</span>
     </a>
   </mat-nav-list>

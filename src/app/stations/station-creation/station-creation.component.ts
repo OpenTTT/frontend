@@ -20,24 +20,20 @@ export class StationCreationComponent {
   @ViewChild('stationName') stationNameInput: ElementRef;
 
   form = this.fb.group({
-    destinationType: ['STATION'],
     name: ['', Validators.required],
+    destinationType: ['STATION'],
   });
 
   submitValue() {
     if (this.form.valid) {
       this.form.disable();
-      // TODO: Proper error handling
       this.api.create(this.form.value)
         .subscribe(
           (station) => {
             this.stationAdded.next(station);
             this.clearForm();
-          },
-          (error) => {
-          this.form.enable();
-          console.error(error);
-        });
+          }
+          );
     }
   }
 
