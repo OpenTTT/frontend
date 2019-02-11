@@ -22,7 +22,7 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
 
   @Input() formGroup: FormGroup;
   @Input() formArray: FormArray;
-  @ViewChild("destinationInput") destinationInput: ElementRef;
+  @ViewChild('destinationInput') destinationInput: ElementRef;
 
   newOrderForm = this.fb.group({
     'destination': ['', Validators.required],
