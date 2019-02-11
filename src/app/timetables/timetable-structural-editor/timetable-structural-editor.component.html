@@ -1,6 +1,6 @@
 <mat-autocomplete #stationsAutocomplete>
-  <mat-option *ngFor="let option of filteredStations" [value]="option">
-    {{ option }}
+  <mat-option *ngFor="let option of filteredStations" [value]="option.name">
+    {{ option.name }}
   </mat-option>
 </mat-autocomplete>
 
@@ -72,6 +72,7 @@
                    type="text"
                    formControlName="destination"
                    (focus)="onFocusChanged(newOrderForm.controls['destination'])"
+                   (blur)="onDestinationSelected()"
                    [matAutocomplete]="stationsAutocomplete"
             >
           </mat-form-field>

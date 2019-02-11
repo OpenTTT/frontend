@@ -4,6 +4,7 @@ import {TimetableService} from '@shared/services/timetable.service';
 import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {StationsService} from '@shared/services/stations.service';
 import {Subscription} from 'rxjs';
+import {Station} from '@shared/model/station';
 
 @Component({
   selector: 'app-timetable-structural-editor',
@@ -26,20 +27,28 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
 
   newOrderForm = this.fb.group({
     'destination': ['', Validators.required],
-    'stayingTime': ['', Validators.required],
-    'travelingTime': ['', Validators.required],
+    'stayingTime': ['0', Validators.required],
+    'travelingTime': ['0', Validators.required],
   });
 
   // TODO: Autocomplete fun. This should be refactored into it's own component!
-  filteredStations: string[] = [];
-  stations: string[] = [];
+  filteredStations: Station[] = [];
+  stations: Station[] = [];
   focusedControl: AbstractControl;
   focusedControlSubscription: Subscription;
+
+  stationsByName: {string?: Station} = {};
 
   ngOnInit() {
     this.orders = this.formArray.value;
     this.stationsApi.getAll().subscribe(
-      stations => this.stations = this.filteredStations = stations.map(s => s.name)
+      stations => {
+        this.stations = this.filteredStations = stations;
+        this.stationsByName = stations.reduce(((map, obj) => {
+          map[obj.name] = obj;
+          return map;
+        }), {});
+      }
     );
   }
 
@@ -50,11 +59,11 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
 
     this.focusedControl = control;
     this.focusedControl.valueChanges.subscribe(
-      value => this.filteredStations = this.stations.filter(s => s.startsWith(value))
+      value => this.filteredStations = this.stations.filter(s => s.name.startsWith(value))
     );
 
     if (this.focusedControl.value !== '') {
-      this.filteredStations = this.stations.filter(s => s.startsWith(this.focusedControl.value));
+      this.filteredStations = this.stations.filter(s => s.name.startsWith(this.focusedControl.value));
     }
   }
 
@@ -82,16 +91,19 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
   addNewStation() {
     if (this.newOrderForm.valid) {
       const newRow = this.newOrderForm.value;
+      console.log(this.stationsByName);
+      const stayingTimeShouldBeDisabled = this.stationsByName[newRow['destination']].destinationType !== 'STATION';
       this.formArray.push(this.fb.group({
         'destination': newRow['destination'],
-        'stayingTime': newRow['stayingTime'],
+        'stayingTime': {value: newRow['stayingTime'], disabled: stayingTimeShouldBeDisabled},
         'travelingTime': newRow['travelingTime']
       }));
       this.newOrderForm.setValue({
         'destination': '',
-        'stayingTime': '',
-        'travelingTime': '',
+        'stayingTime': '0',
+        'travelingTime': '0',
       });
+      this.newOrderForm.controls['stayingTime'].enable();
       this.newOrderForm.markAsPristine();
       this.destinationInput.nativeElement.focus();
       this.refreshBoundOrders();
@@ -100,5 +112,13 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
 
   refreshBoundOrders() {
     this.orders = this.formArray.value;
+  }
+
+  onDestinationSelected() {
+    const selectedDestination = this.newOrderForm.value['destination'];
+    if (this.stationsByName[selectedDestination].destinationType !== 'STATION') {
+      this.newOrderForm.patchValue({'stayingTime': 0});
+      this.newOrderForm.controls['stayingTime'].disable();
+    }
   }
 }
