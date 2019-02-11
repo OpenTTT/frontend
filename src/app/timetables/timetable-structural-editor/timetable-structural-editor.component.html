@@ -68,6 +68,7 @@
         <td>
           <mat-form-field>
             <input matInput
+                   #destinationInput
                    type="text"
                    formControlName="destination"
                    (focus)="onFocusChanged(newOrderForm.controls['destination'])"

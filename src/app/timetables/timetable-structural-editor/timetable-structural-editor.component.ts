@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {TimetableEditorComponent} from '../timetable-editor/timetable-editor.component';
 import {TimetableService} from '@shared/services/timetable.service';
 import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
@@ -22,6 +22,8 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
 
   @Input() formGroup: FormGroup;
   @Input() formArray: FormArray;
+  @ViewChild("destinationInput") destinationInput: ElementRef;
+
   newOrderForm = this.fb.group({
     'destination': ['', Validators.required],
     'stayingTime': ['', Validators.required],
@@ -91,6 +93,7 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
         'travelingTime': '',
       });
       this.newOrderForm.markAsPristine();
+      this.destinationInput.nativeElement.focus();
       this.refreshBoundOrders();
     }
   }
