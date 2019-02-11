@@ -21,57 +21,22 @@ export class DispatchDetailComponent implements OnInit {
 
   id = -1;
   dispatch: ScheduledDispatch = null;
-  editMode = true;
   dispatchChange: Subject<any> = new Subject();
-  scheduleDispatchForm = this.fb.group({
-    'id': this.fb.control(['']),
-    'timetable': this.fb.control(['unknown']),
-    'timetableId': this.fb.control(['']),
-    'intervalInMinutes': this.fb.control(['∞']),
-    'departures': this.fb.array([])
-  });
-  newDepartureControl = this.fb.control(['']);
   numberOfDeparturesDisplayed = this.fb.control(5);
-  @ViewChild('newDepartureInput') newDepartureInput: ElementRef;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
       this.api.getDispatch(this.id).subscribe(dispatch => {
-        this.scheduleDispatchForm.patchValue(dispatch);
-        for (const departure of dispatch.departures) {
-          const departureArray = this.scheduleDispatchForm.controls['departures'] as FormArray;
-          departureArray.push(this.fb.control(departure));
-        }
         this.dispatch = dispatch;
       });
     });
-    this.scheduleDispatchForm.valueChanges
-      .pipe(debounceTime(500))
-      .subscribe(() => {
-        this.api.updateScheduledDispatch(this.scheduleDispatchForm.value)
-          .subscribe(() => this.dispatchChange.next());
-      });
     this.numberOfDeparturesDisplayed.valueChanges
       .subscribe(() => this.dispatchChange.next());
-  }
-  toggleEditMode() {
-    this.editMode = !this.editMode;
   }
 
   onTimetableChanges() {
     this.dispatchChange.next();
   }
 
-  addDeparture() {
-    (this.scheduleDispatchForm.controls['departures'] as FormArray)
-      .push(this.fb.control(this.newDepartureControl.value));
-    this.newDepartureControl.setValue('');
-  }
-
-  removeDeparture(index: number) {
-    const departures = this.scheduleDispatchForm.controls['departures'] as FormArray;
-    departures.removeAt(index);
-    this.dispatchChange.next();
-  }
 }

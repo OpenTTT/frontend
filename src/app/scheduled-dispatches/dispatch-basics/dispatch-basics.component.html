@@ -1,0 +1,25 @@
+<div>
+  A scheduled dispatch that repeats every
+  <input type="number" class="slim number" [(ngModel)]="dispatch.intervalInMinutes" (change)="updateDispatch()">
+  minutes
+</div>
+<div>
+  Within that interval, it begins a new schedule at the following offsets:
+  <ul>
+    <li *ngFor="let departure of dispatch.departures; let i = index; trackBy: trackDeparture">
+      <input type="number" class="slim number" [(ngModel)]="dispatch.departures[i]" (change)="updateDispatch()"> minutes
+      <small><button mat-icon-button [disabled]="dispatch.departures.length <= 1" (click)="removeDeparture(i)"><mat-icon>delete</mat-icon></button></small>
+    </li>
+    <li>
+      <input type="number"
+             class="slim number"
+             min="0"
+             [max]="dispatch.intervalInMinutes"
+             [(ngModel)]="newDeparture"
+             (keyup.enter)="addDeparture()"
+      > minutes
+      <small><button mat-icon-button (click)="addDeparture()"><mat-icon>add</mat-icon></button></small>
+    </li>
+  </ul>
+  <small>Explanation: With a interval of 60 minutes and departures at offsets 0 and 30, the train would start at 00:00 and 00:30</small>
+</div>

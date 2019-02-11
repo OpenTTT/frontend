@@ -15,9 +15,16 @@ import { DispatchDetailComponent } from './dispatch-detail/dispatch-detail.compo
 import { DepartureTableComponent } from './departure-table/departure-table.component';
 import { TimetablesModule } from '../timetables/timetables.module';
 import { NewScheduledDispatchComponent } from './new-scheduled-dispatch/new-scheduled-dispatch.component';
+import { DispatchBasicsComponent } from './dispatch-basics/dispatch-basics.component';
 
 @NgModule({
-  declarations: [DispatchListComponent, DispatchDetailComponent, DepartureTableComponent, NewScheduledDispatchComponent],
+  declarations: [
+    DispatchListComponent,
+    DispatchDetailComponent,
+    DepartureTableComponent,
+    NewScheduledDispatchComponent,
+    DispatchBasicsComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,

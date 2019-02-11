@@ -1,31 +1,9 @@
-<form [formGroup]="scheduleDispatchForm">
-  <mat-card>
-    <mat-card-title>Dispatch for timetable {{ scheduleDispatchForm.value['timetable'] }}</mat-card-title>
-    <div>
-      A scheduled dispatch that repeats every
-      <strong><input type="number" class="slim number" formControlName="intervalInMinutes"></strong>
-      minutes
-    </div>
-    <div>
-      Within that interval, it begins a new schedule at the following offsets:
-      <ul formArrayName="departures">
-        <li *ngFor="let departure of scheduleDispatchForm.value['departures']; let i = index">
-          <strong><input type="number" class="slim number" [formControlName]="i"></strong> minutes
-          <small><button mat-icon-button (click)="removeDeparture(i)"><mat-icon>delete</mat-icon></button></small>
-        </li>
-        <li>
-          <input type="number"
-                 [formControl]="newDepartureControl"
-                 class="slim number"
-                 (blur)="addDeparture()"
-                 #newDepartureInput
-          > minutes
-        </li>
-      </ul>
-      <small>Explanation: With a interval of 60 minutes and departures at offsets 0 and 30, the train would start at 00:00 and 00:30</small>
-    </div>
-  </mat-card>
-</form>
+<mat-card>
+  <div *ngIf="dispatch">
+    <mat-card-title>Dispatch for timetable {{ dispatch.timetable }}</mat-card-title>
+    <app-dispatch-basics [dispatch]="dispatch"></app-dispatch-basics>
+  </div>
+</mat-card>
 
 <div id="compact-timetable-schedule">
   <mat-card>
@@ -68,5 +46,4 @@
         >
     </div>
   </mat-card>
-
 </div>
