@@ -43,6 +43,7 @@ export class TimetableDetailComponent implements OnInit {
         this.isNewTimetable = true;
       }
     });
+
     this.tagApi.getTags().subscribe(tags => {
       this.allTags = tags;
       this.availableTags = this.allTags.filter((t) => {
@@ -99,5 +100,11 @@ export class TimetableDetailComponent implements OnInit {
 
   findTagWithId(id: number): any {
     return this.allTags.find(t => t.id === id);
+  }
+
+  removeTag(tagId: number, index: number) {
+    const formArray = this.form.controls.tags as FormArray;
+    formArray.removeAt(index);
+    this.availableTags.push(this.findTagWithId(tagId));
   }
 }

@@ -6,7 +6,10 @@
       </mat-form-field>
       <h4>Tags</h4>
       <ul id="tags">
-        <li *ngFor="let tagId of form.value.tags"><app-tag [tag]="findTagWithId(tagId)"></app-tag></li>
+        <li *ngFor="let tagId of form.value.tags; let i=index">
+          <app-tag [tag]="findTagWithId(tagId)"></app-tag>
+          <button mat-icon-button (click)="removeTag(tagId, i)"><mat-icon>remove</mat-icon></button>
+        </li>
       </ul>
       <div *ngIf="availableTags.length > 0">
         <mat-form-field>
