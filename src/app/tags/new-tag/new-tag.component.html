@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-title>New Tag</mat-card-title>
+  <form [formGroup]="newTagForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput formControlName="title" placeholder="Title">
+    </mat-form-field>
+
+
+    <div>
+      Primary Color:
+      <input class="tag-color-picker"
+             [(colorPicker)]="tag.primaryColor"
+             [value]="tag.primaryColor"
+             [style.background]="tag.primaryColor"
+             [style.color]="tag.secondaryColor"
+             (colorPickerChange)="onPrimaryColorChange($event)"
+             placeholder="Primary Color"
+             formControlName="primaryColor">
+    </div>
+
+    <div>
+      Secondary Color:
+      <input class="tag-color-picker"
+             [(colorPicker)]="tag.secondaryColor"
+             [value]="tag.secondaryColor"
+             [style.background]="tag.secondaryColor"
+             [style.color]="tag.primaryColor"
+             (colorPickerChange)="onSecondaryColorChanged($event)"
+             placeholder="Primary Color"
+             formControlName="primaryColor">
+    </div>
+  </form>
+  Preview: <app-tag [tag]="tag"></app-tag>
+</mat-card>
+
+<button mat-button mat-raised-button color="primary" (click)="onSubmit()">Save</button>

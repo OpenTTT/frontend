@@ -9,6 +9,7 @@ import {TimetableService} from '@shared/services/timetable.service';
 import {StatsService} from '@shared/services/stats.service';
 import { OpenTTTErrorHandler, ValidationErrorSnackbarComponent } from '@shared/OpenTTTErrorHandler';
 import { MatSnackBarModule } from '@angular/material';
+import { TagsService } from '@shared/services/tags.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatSnackBarModule } from '@angular/material';
     StationsService,
     TimetableService,
     StatsService,
+    TagsService,
     {provide: ErrorHandler, useClass: OpenTTTErrorHandler},
   ]
 })

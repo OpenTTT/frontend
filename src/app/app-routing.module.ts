@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import {TimetableListComponent} from './timetables/timetable-list/timetable-list.component';
 import {TimetableDetailComponent} from './timetables/timetable-detail/timetable-detail.component';
 import {NewScheduledDispatchComponent} from './scheduled-dispatches/new-scheduled-dispatch/new-scheduled-dispatch.component';
+import { TagListComponent } from './tags/tag-list/tag-list.component';
+import { NewTagComponent } from './tags/new-tag/new-tag.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path: 'dispatches/new', component: NewScheduledDispatchComponent},
   {path: 'dispatches/:id', component: DispatchDetailComponent},
   {path: 'timetables', component: TimetableListComponent},
-  {path: 'timetables/:id', component: TimetableDetailComponent}
+  {path: 'timetables/:id', component: TimetableDetailComponent},
+  {path: 'tags', component: TagListComponent},
+  {path: 'tags/new', component: NewTagComponent},
 ];
 
 @NgModule({
