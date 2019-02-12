@@ -4,20 +4,12 @@ node_js:
 dist: trusty
 sudo: required
 
-addons:
-  sonarcloud:
-    organization: "openttt"
-    token:
-      secure: $SONAR_TOKEN
-
 before_script:
 - npm install -g @angular/cli
 
 script:
 - ng lint
 - ng build --prod
-- git fetch --unshallow
-- bash sonar.sh
 
 deploy:
   provider: s3
