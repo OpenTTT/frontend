@@ -44,3 +44,8 @@ input.number {
   width: 30px;
 }
 
+// We only use it for errors
+.mat-snack-bar-container {
+  background-color: #ff3d3d;
+  color: white;
+}
