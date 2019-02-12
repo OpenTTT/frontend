@@ -16,6 +16,7 @@ import { DepartureTableComponent } from './departure-table/departure-table.compo
 import { TimetablesModule } from '../timetables/timetables.module';
 import { NewScheduledDispatchComponent } from './new-scheduled-dispatch/new-scheduled-dispatch.component';
 import { DispatchBasicsComponent } from './dispatch-basics/dispatch-basics.component';
+import { TagsModule } from '../tags/tags.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { DispatchBasicsComponent } from './dispatch-basics/dispatch-basics.compo
     MatCardModule,
     MatButtonModule,
     TimetablesModule,
+    TagsModule,
   ],
   exports: [DispatchListComponent, DispatchDetailComponent, NewScheduledDispatchComponent],
 })

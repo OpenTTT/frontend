@@ -30,14 +30,12 @@ export class NewScheduledDispatchComponent implements OnInit {
 
   saveScheduledDispatch() {
     this.scheduleApi.createScheduledDispatch({
-      id: null,
-      timetable: null,
       timetableId: this.newScheduledDispatchForm.value['timetable'],
       departures: [
         0,
         30,
       ],
-      intervalInMinutes: 60
+      intervalInMinutes: 60,
     }).subscribe(
       (sd) => this.router.navigate(['/dispatches/', sd.id])
     );

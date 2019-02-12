@@ -1,6 +1,6 @@
 <mat-card>
   <div *ngIf="dispatch">
-    <mat-card-title>Dispatch for timetable {{ dispatch.timetable }}</mat-card-title>
+    <mat-card-title>Dispatch for timetable {{ dispatch.timetable }} <app-tag *ngFor="let tag of dispatch.timetableTags" [tag]="tag"></app-tag></mat-card-title>
     <app-dispatch-basics [dispatch]="dispatch"></app-dispatch-basics>
   </div>
 </mat-card>
