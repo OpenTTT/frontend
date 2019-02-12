@@ -1,3 +1,5 @@
+import { Tag } from '@shared/model/tag';
+
 export interface Order {
   id: number;
   destination: string;
@@ -9,4 +11,5 @@ export interface Timetable {
   id: number;
   name: string;
   orders: Order[];
+  tags: Tag[];
 }

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TimetableTableComponent } from './timetable-table/timetable-table.component';
-import {SharedModule} from '../shared/shared.module';
+import {SharedModule} from '@shared/shared.module';
 import {
   MatAutocompleteModule, MatButtonModule,
   MatCardModule, MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatOptionModule, MatSelectModule,
   MatTableModule
 } from '@angular/material';
 import { TimetableEditorComponent } from './timetable-editor/timetable-editor.component';
@@ -17,6 +17,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { TimetableStructuralEditorComponent } from './timetable-structural-editor/timetable-structural-editor.component';
 import {StationsModule} from '../stations/stations.module';
 import {RouterModule} from '@angular/router';
+import { TagsModule } from '../tags/tags.module';
 
 @NgModule({
   declarations: [
@@ -37,9 +38,12 @@ import {RouterModule} from '@angular/router';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
     ReactiveFormsModule,
     SharedModule,
     StationsModule,
+    TagsModule,
   ],
   exports: [TimetableTableComponent, TimetableEditorComponent, TimetableListComponent]
 })
