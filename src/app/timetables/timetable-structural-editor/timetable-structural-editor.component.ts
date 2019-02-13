@@ -92,10 +92,9 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
     if (this.newOrderForm.valid) {
       const newRow = this.newOrderForm.value;
       console.log(this.stationsByName);
-      const stayingTimeShouldBeDisabled = this.stationsByName[newRow['destination']].destinationType !== 'STATION';
       this.formArray.push(this.fb.group({
         'destination': newRow['destination'],
-        'stayingTime': {value: newRow['stayingTime'], disabled: stayingTimeShouldBeDisabled},
+        'stayingTime': {value: newRow['stayingTime']},
         'travelingTime': newRow['travelingTime']
       }));
       this.newOrderForm.setValue({
@@ -112,13 +111,5 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
 
   refreshBoundOrders() {
     this.orders = this.formArray.value;
-  }
-
-  onDestinationSelected() {
-    const selectedDestination = this.newOrderForm.value['destination'];
-    if (this.stationsByName[selectedDestination].destinationType !== 'STATION') {
-      this.newOrderForm.patchValue({'stayingTime': 0});
-      this.newOrderForm.controls['stayingTime'].disable();
-    }
   }
 }
