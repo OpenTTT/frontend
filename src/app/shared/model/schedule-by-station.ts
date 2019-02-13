@@ -4,5 +4,6 @@ export class StationDeparture {
 }
 export class ScheduleByStation {
   station: string;
+  returnTrip: boolean;
   departures: StationDeparture[];
 }

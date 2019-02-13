@@ -32,7 +32,7 @@ export class DepartureTableComponent implements OnInit {
 
   private refresh() {
     this.isLoading = true;
-    this.api.getSchedulesForDispatchByStation(this.dispatchId, this.numSchedules)
+    this.api.getSchedulesForDispatchByStation(this.dispatchId, this.numSchedules, true)
       .subscribe(schedules => {
         this.schedules = schedules;
         this.isLoading = false;

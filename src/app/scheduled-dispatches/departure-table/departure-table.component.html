@@ -11,7 +11,7 @@
       <td>{{ stationDepartures.station }}</td>
       <td *ngFor="let departure of stationDepartures.departures">
         A: {{ departure.arrival }}<br />
-        D: {{ departure.departure }}
+        D: {{ (stationDepartures.returnTrip) ? '--:--' : departure.departure }}
       </td>
     </tr>
   </tbody>
