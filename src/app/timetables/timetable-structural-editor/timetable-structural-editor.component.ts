@@ -94,7 +94,7 @@ export class TimetableStructuralEditorComponent extends TimetableEditorComponent
       console.log(this.stationsByName);
       this.formArray.push(this.fb.group({
         'destination': newRow['destination'],
-        'stayingTime': {value: newRow['stayingTime']},
+        'stayingTime': newRow['stayingTime'],
         'travelingTime': newRow['travelingTime']
       }));
       this.newOrderForm.setValue({
