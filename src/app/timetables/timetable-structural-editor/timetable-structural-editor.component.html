@@ -49,19 +49,17 @@
           </mat-form-field>
         </td>
         <td>
-          <small *ngIf="!last">
-            <button mat-icon-button (click)="onRowUp(i)" [ngClass]="{hidden: i == 0}">
-              <mat-icon>arrow_upward</mat-icon>
-            </button>
+          <button mat-icon-button (click)="onRowUp(i)" [ngClass]="{hidden: i == 0}">
+            <mat-icon>arrow_upward</mat-icon>
+          </button>
 
-            <button mat-icon-button (click)="onRowDown(i)" [ngClass]="{hidden: (i == orders.length-1)}">
-              <mat-icon>arrow_downward</mat-icon>
-            </button>
+          <button mat-icon-button (click)="onRowDown(i)" [ngClass]="{hidden: (i == orders.length-1)}">
+            <mat-icon>arrow_downward</mat-icon>
+          </button>
 
-            <button mat-icon-button (click)="onRowDeleted(i)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </small>
+          <button mat-icon-button (click)="onRowDeleted(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
         </td>
       </tr>
       <tr [formGroup]="newOrderForm">
