@@ -7,7 +7,7 @@ import {ScheduledDispatchService} from '@shared/services/scheduled-dispatch.serv
 import {StationsService} from '@shared/services/stations.service';
 import {TimetableService} from '@shared/services/timetable.service';
 import {StatsService} from '@shared/services/stats.service';
-import { OpenTTTErrorHandler, ValidationErrorSnackbarComponent } from '@shared/OpenTTTErrorHandler';
+import { OpenTTTErrorHandler } from '@shared/OpenTTTErrorHandler';
 import { TagsService } from '@shared/services/tags.service';
 import { IconArrowDownRight, IconClock, IconHome, IconMapPin, IconTag } from 'angular-feather';
 
@@ -21,12 +21,6 @@ const icons: any[] = [
 ];
 
 @NgModule({
-  declarations: [
-    ValidationErrorSnackbarComponent,
-  ],
-  entryComponents: [
-    ValidationErrorSnackbarComponent,
-  ],
   imports: [
     CommonModule,
     HttpClientModule,

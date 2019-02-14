@@ -2,14 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TimetableTableComponent } from './timetable-table/timetable-table.component';
 import {SharedModule} from '@shared/shared.module';
-import {
-  MatAutocompleteModule, MatButtonModule,
-  MatCardModule, MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule, MatOptionModule, MatSelectModule,
-  MatTableModule
-} from '@angular/material';
 import { TimetableEditorComponent } from './timetable-editor/timetable-editor.component';
 import { TimetableListComponent } from './timetable-list/timetable-list.component';
 import { TimetableDetailComponent } from './timetable-detail/timetable-detail.component';
@@ -19,7 +11,7 @@ import {StationsModule} from '../stations/stations.module';
 import {RouterModule} from '@angular/router';
 import { TagsModule } from '../tags/tags.module';
 
-@NgModule({
+/*@NgModule({
   declarations: [
     TimetableTableComponent,
     TimetableEditorComponent,
@@ -30,21 +22,11 @@ import { TagsModule } from '../tags/tags.module';
   imports: [
     CommonModule,
     RouterModule,
-    MatTableModule,
-    MatAutocompleteModule,
-    MatListModule,
-    MatCardModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    MatSelectModule,
-    MatOptionModule,
     ReactiveFormsModule,
     SharedModule,
     StationsModule,
     TagsModule,
   ],
   exports: [TimetableTableComponent, TimetableEditorComponent, TimetableListComponent]
-})
+})*/
 export class TimetablesModule { }

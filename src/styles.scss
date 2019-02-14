@@ -4,48 +4,8 @@
 
 body {
   margin: 0;
-  color: #383838;
-  font-size: 1.1em; // I have a slight eye problem
 }
 
 * {
   font-family: 'Open Sans', sans-serif;
-}
-
-mat-card {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-// Go away dumb arrows
-input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-input.slim {
-  border: 0;
-  border-bottom: 1px solid #383838;
-  background-color: transparent;
-  font-size: 1em;
-  outline: none;
-  &:focus {
-    border-bottom: 2px solid orange;
-  }
-}
-
-input.number {
-  // Should be able to fit about 3 digits
-  text-align: center;
-  width: 30px;
-}
-
-// We only use it for errors
-.mat-snack-bar-container {
-  background-color: #ff3d3d;
-  color: white;
 }
