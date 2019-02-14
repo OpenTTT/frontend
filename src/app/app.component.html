@@ -1,9 +1,13 @@
 <div id="root-grid">
   <div id="sidebar">
-    <div class="sidebar-link">
-      <a routerLink="/home" routerLinkActive="active">
-        <i-home></i-home>
-        <span>Home</span>
+    <!-- TODO: Extract sidebar logic into its own component! -->
+    <div class="sidebar-link" *ngFor="let link of displayedLinks">
+      <a [routerLink]="link.routerLink" routerLinkActive="active">
+        <ng-container [ngSwitch]="link.featherIcon">
+          <ng-template ngSwitchCase="home"><i-home></i-home></ng-template>
+          <ng-template ngSwitchDefault><i-help-circle></i-help-circle></ng-template>
+        </ng-container>
+        <span>{{ link.linkText }}</span>
       </a>
     </div>
   </div>

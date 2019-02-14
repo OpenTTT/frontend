@@ -9,7 +9,7 @@ import {TimetableService} from '@shared/services/timetable.service';
 import {StatsService} from '@shared/services/stats.service';
 import { OpenTTTErrorHandler } from '@shared/OpenTTTErrorHandler';
 import { TagsService } from '@shared/services/tags.service';
-import { IconArrowDownRight, IconClock, IconHome, IconMapPin, IconTag } from 'angular-feather';
+import { IconArrowDownRight, IconClock, IconHelpCircle, IconHome, IconMapPin, IconTag } from 'angular-feather';
 
 // A collection of the icons used in the application
 const icons: any[] = [
@@ -18,6 +18,7 @@ const icons: any[] = [
   IconArrowDownRight, // Sidebar: Timetables
   IconClock, // Sidebar: Scheduled Dispatches
   IconTag, // Sidebar: Tags
+  IconHelpCircle, // Used wherever no appropriate icon can be found
 ];
 
 @NgModule({
