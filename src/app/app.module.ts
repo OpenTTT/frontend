@@ -18,10 +18,12 @@ import { HomeComponent } from './home/home.component';
     SharedModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+/*
     StationsModule,
-/*    ScheduledDispatchesModule,
+    ScheduledDispatchesModule,
     TimetablesModule,
-    TagsModule,*/
+    TagsModule,
+*/
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,7 +4,6 @@ import {TimetableService} from '@shared/services/timetable.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Tag } from '@shared/model/tag';
 import { TagsService } from '@shared/services/tags.service';
-import { MatOptionSelectionChange } from '@angular/material';
 
 @Component({
   selector: 'app-timetable-detail',
@@ -91,7 +90,7 @@ export class TimetableDetailComponent implements OnInit {
     observable.subscribe(() => this.router.navigate(['/timetables']));
   }
 
-  onTagSelectionChange(event: MatOptionSelectionChange) {
+  onTagSelectionChange(event: any) {
     const id: number = +event.source.value;
     const formArray = this.form.controls.tags as FormArray;
     formArray.push(this.fb.control(id));

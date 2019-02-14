@@ -1,28 +1,10 @@
-<mat-sidenav-container id="root">
-  <mat-sidenav mode="side" opened>
-    <a mat-button routerLink="/home" routerLinkActive="active">
-      <mat-icon>home</mat-icon><br />
-      Home
+<div id="root-grid">
+  <div id="sidebar">
+    <a routerLink="/home">
+      <i-home></i-home> Home
     </a>
-
-    <a mat-button routerLink="/stations" routerLinkActive="active">
-      <mat-icon>location_city</mat-icon><br />
-      Stations
-    </a>
-    <a mat-button routerLink="/dispatches" routerLinkActive="active">
-      <mat-icon>schedule</mat-icon><br />
-      Scheduled Dispatch
-    </a>
-    <a mat-button routerLink="/timetables" routerLinkActive="active">
-      <mat-icon>table</mat-icon><br />
-      Timetables
-    </a>
-    <a mat-button routerLink="/tags" routerLinkActive="active">
-      <mat-icon>filter_1</mat-icon><br />
-      Tags
-    </a>
-  </mat-sidenav>
-  <mat-sidenav-content>
+  </div>
+  <div id="content">
     <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </div>
+</div>
