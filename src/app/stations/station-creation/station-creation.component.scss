@@ -1,15 +1,15 @@
+@import "../../../styles";
+
 form {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  mat-form-field {
-    flex-grow: 1;
-    &#typeSelector {
-      flex-grow: 0;
-    }
+  @include flex-rows;
+  @include inbox-spacing;
+
+  #destination-type {
+    flex-shrink: 1;
+    flex-basis: content;
   }
 
-  button {
-    justify-self: right;
+  #destination-name {
+    flex-grow: 1;
   }
 }

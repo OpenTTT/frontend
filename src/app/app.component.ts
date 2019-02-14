@@ -14,5 +14,6 @@ interface SidenavLink {
 export class AppComponent {
   displayedLinks: SidenavLink[] = [
     {routerLink: '/home', featherIcon: 'home', linkText: 'Home'},
+    {routerLink: '/stations', featherIcon: 'map-pin', linkText: 'Stations'},
   ];
 }

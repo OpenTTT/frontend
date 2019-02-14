@@ -1,18 +1,12 @@
-<!--<mat-card>
-  <mat-nav-list>
-    <a mat-list-item *ngFor="let station of stations">
-      <span class="station-type" [ngSwitch]="station.destinationType">
-        <mat-icon *ngSwitchCase="'STATION'">location_city</mat-icon>
-        <mat-icon *ngSwitchCase="'WAYPOINT'">swap_horiz</mat-icon>
-        <mat-icon *ngSwitchCase="'DEPOT'">build</mat-icon>
-      </span>
-      <span class="station-name">{{ station.name }}</span>
-    </a>
-  </mat-nav-list>
-  <mat-list>
-    <mat-list-item>
-      <app-station-creation (stationAdded)="onStationAdded($event)"></app-station-creation>
-    </mat-list-item>
-  </mat-list>
-</mat-card>
--->
+<div class="box" id="station-box">
+  <a *ngFor="let station of stations">
+    <span class="station-type-icon" [ngSwitch]="station.destinationType">
+      <ng-template ngSwitchCase="STATION"><i-home></i-home></ng-template>
+      <ng-template ngSwitchCase="WAYPOINT"><i-chevron-right></i-chevron-right></ng-template>
+      <ng-template ngSwitchCase="DEPOT"><i-settings></i-settings></ng-template>
+      <ng-template ngSwitchDefault>AAH</ng-template>
+    </span>
+    <span class="station-name">{{ station.name }}</span>
+  </a>
+  <app-station-creation (stationAdded)="onStationAdded($event)"></app-station-creation>
+</div>
