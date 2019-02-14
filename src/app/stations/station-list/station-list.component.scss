@@ -1,3 +1,13 @@
-app-station-creation {
-  width: 100%;
+@import "../../../styles";
+
+#station-box {
+  @include flex-columns;
+
+  a {
+    @include flex-rows;
+    @include inbox-spacing;
+
+    height: 5rem;
+    align-items: center;
+  }
 }

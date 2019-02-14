@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StationsService } from '../../shared/services/stations.service';
-import { Station } from '../../shared/model/station';
+import { StationsService } from '@shared/services/stations.service';
+import { Station, StationType } from '@shared/model/station';
 
 @Component({
   selector: 'app-station-list',

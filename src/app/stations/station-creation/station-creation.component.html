@@ -1,28 +1,10 @@
 <form [formGroup]="form" (ngSubmit)="submitValue()">
-  <mat-form-field id="typeSelector">
-    <mat-select formControlName="destinationType" placeholder="Destination Type">
-      <mat-select-trigger [ngSwitch]="form.value['destinationType']">
-        <span *ngSwitchCase="'STATION'"><mat-icon>location_city</mat-icon>&nbsp;Station</span>
-        <span *ngSwitchCase="'WAYPOINT'"><mat-icon>swap_horiz</mat-icon>&nbsp;Waypoint</span>
-        <span *ngSwitchCase="'DEPOT'"><mat-icon>build</mat-icon>&nbsp;Depot</span>
-      </mat-select-trigger>
+  <select formControlName="destinationType" id="destination-type">
+    <option value="STATION">Station</option>
+    <option value="WAYPOINT">Waypoint</option>
+    <option value="DEPOT">Depot</option>
+  </select>
 
-      <mat-option value="STATION">
-        <mat-icon>location_city</mat-icon>&nbsp;Station
-      </mat-option>
-      <mat-option value="WAYPOINT">
-        <mat-icon>swap_horiz</mat-icon>&nbsp;Waypoint
-      </mat-option>
-      <mat-option value="DEPOT">
-        <mat-icon>build</mat-icon>&nbsp;Depot
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <input #stationName matInput placeholder="Station Name" formControlName="name">
-  </mat-form-field>
-  <button mat-icon-button (click)="submitValue()">
-    <mat-icon>add</mat-icon>
-  </button>
-
+  <input #stationName id="destination-name" placeholder="Station Name" formControlName="name">
+  <button (click)="submitValue()">Add!</button>
 </form>

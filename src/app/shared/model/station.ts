@@ -1,4 +1,4 @@
-enum StationType {
+export enum StationType {
   STATION,
   WAYPOINT,
   DEPOT,

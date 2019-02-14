@@ -3,6 +3,12 @@
   height: 100%;
 }
 
+@mixin inbox-spacing {
+  *:not(:first-child) {
+    margin-left: 1rem;
+  }
+}
+
 @mixin flex-rows {
   display: flex;
   flex-direction: row;

@@ -4,7 +4,7 @@ import { StationListComponent } from './station-list/station-list.component';
 import { SharedModule } from '@shared/shared.module';
 import { StationCreationComponent } from './station-creation/station-creation.component';
 
-/*@NgModule({
+@NgModule({
   declarations: [StationListComponent, StationCreationComponent],
   imports: [
     CommonModule,
@@ -13,5 +13,5 @@ import { StationCreationComponent } from './station-creation/station-creation.co
   exports: [
     StationListComponent,
   ],
-})*/
+})
 export class StationsModule { }

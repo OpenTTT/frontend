@@ -2,6 +2,7 @@
 @import "variables";
 
 @import "styles/containers";
+@import "styles/forms";
 
 html, body {
   margin: 0;
@@ -9,9 +10,10 @@ html, body {
   height: 100%;
   font-family: 'Open Sans', sans-serif;
   color: $text-color;
+  line-height: 1;
 
 }
 
-a:visited {
+a, a:visited {
   color: $text-color;
 }
