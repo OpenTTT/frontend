@@ -1,8 +1,11 @@
 <div id="root-grid">
   <div id="sidebar">
-    <a routerLink="/home">
-      <i-home></i-home> Home
-    </a>
+    <div class="sidebar-link">
+      <a routerLink="/home" routerLinkActive="active">
+        <i-home></i-home>
+        Home
+      </a>
+    </div>
   </div>
   <div id="content">
     <router-outlet></router-outlet>

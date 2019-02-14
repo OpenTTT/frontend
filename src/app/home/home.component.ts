@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StatsService } from '../shared/services/stats.service';
-import { Stats } from '../shared/model/stats';
+import { StatsService } from '@shared/services/stats.service';
+import { Stats } from '@shared/model/stats';
 
 @Component({
   selector: 'app-home',
