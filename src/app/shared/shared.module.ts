@@ -8,8 +8,17 @@ import {StationsService} from '@shared/services/stations.service';
 import {TimetableService} from '@shared/services/timetable.service';
 import {StatsService} from '@shared/services/stats.service';
 import { OpenTTTErrorHandler, ValidationErrorSnackbarComponent } from '@shared/OpenTTTErrorHandler';
-import { MatSnackBarModule } from '@angular/material';
 import { TagsService } from '@shared/services/tags.service';
+import { IconArrowDownRight, IconClock, IconHome, IconMapPin, IconTag } from 'angular-feather';
+
+// A collection of the icons used in the application
+const icons: any[] = [
+  IconHome, // Sidebar: Home
+  IconMapPin, // Sidebar: Destinations
+  IconArrowDownRight, // Sidebar: Timetables
+  IconClock, // Sidebar: Scheduled Dispatches
+  IconTag, // Sidebar: Tags
+];
 
 @NgModule({
   declarations: [
@@ -24,13 +33,12 @@ import { TagsService } from '@shared/services/tags.service';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    MatSnackBarModule,
-  ],
+  ].concat(...icons),
   exports: [
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-  ],
+  ].concat(...icons),
   providers: [
     ScheduledDispatchService,
     StationsService,
