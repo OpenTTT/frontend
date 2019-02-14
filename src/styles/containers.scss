@@ -1,0 +1,10 @@
+@import "../mixins";
+@import "../variables";
+
+.box {
+  @include shadow;
+
+  border-radius: 15px;
+  background-color: white;
+  padding: 1rem;
+}

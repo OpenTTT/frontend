@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    
+
     a {
       @include flex-columns;
 
@@ -42,8 +42,8 @@
 }
 
 #content {
-  @include shadow;
+  @include inset-shadow;
 
   background-color: $background-color;
-  padding-left: 5rem;
+  padding: 2.5rem 2.5rem;
 }
