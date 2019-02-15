@@ -24,7 +24,7 @@
              [(ngModel)]="newDeparture"
              (keyup.enter)="addDeparture()"
       > minutes
-      <small><button (click)="addDeparture()">Add</button></small>
+      <small><button class="icon-button" (click)="addDeparture()"><i-plus></i-plus></button></small>
     </li>
   </ul>
   <small>Explanation: With a interval of 60 minutes and departures at offsets 0 and 30, the train would start at 00:00 and 00:30</small>
