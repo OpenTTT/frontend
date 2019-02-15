@@ -53,8 +53,11 @@ button.icon-button {
   background-color: transparent;
   border-color: transparent;
   color: $text-color;
+
   line-height: 1;
-  
+  margin-bottom: 0;
+  vertical-align: middle;
+
   &:hover {
     background-color: transparent;
     color: $primary-color;
