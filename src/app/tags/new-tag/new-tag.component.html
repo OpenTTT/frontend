@@ -1,36 +1,33 @@
-<mat-card>
-  <mat-card-title>New Tag</mat-card-title>
+<div class="box">
   <form [formGroup]="newTagForm" (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <input matInput formControlName="title" placeholder="Title">
-    </mat-form-field>
-
+    <h2>New Tag</h2>
+    <label for="title">Tag Title</label>
+    <input id="title" formControlName="title" placeholder="Title">
 
     <div>
-      Primary Color:
-      <input class="tag-color-picker"
+      <label for="primary-color-picker">Primary Color:</label>
+      <input id="primary-color-picker"
+             class="tag-color-picker"
              [(colorPicker)]="tag.primaryColor"
              [value]="tag.primaryColor"
-             [style.background]="tag.primaryColor"
-             [style.color]="tag.secondaryColor"
+             [ngStyle]="{background: tag.primaryColor, color: tag.secondaryColor, 'border-color': tag.secondaryColor}"
              (colorPickerChange)="onPrimaryColorChange($event)"
              placeholder="Primary Color"
              formControlName="primaryColor">
     </div>
 
     <div>
-      Secondary Color:
-      <input class="tag-color-picker"
+      <label for="secondary-color-picker">Secondary Color:</label>
+      <input id="secondary-color-picker"
+             class="tag-color-picker"
              [(colorPicker)]="tag.secondaryColor"
              [value]="tag.secondaryColor"
-             [style.background]="tag.secondaryColor"
-             [style.color]="tag.primaryColor"
+             [ngStyle]="{background: tag.secondaryColor, color: tag.primaryColor, 'border-color': tag.primaryColor}"
              (colorPickerChange)="onSecondaryColorChanged($event)"
              placeholder="Primary Color"
              formControlName="primaryColor">
     </div>
   </form>
   Preview: <app-tag [tag]="tag"></app-tag>
-</mat-card>
-
-<button mat-button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+</div>
+<button (click)="onSubmit()">Save</button>

@@ -6,7 +6,7 @@ import { SharedModule } from '@shared/shared.module';
 import { NewTagComponent } from './new-tag/new-tag.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 
-/*@NgModule({
+@NgModule({
   declarations: [TagListComponent, TagComponent, NewTagComponent],
   imports: [
     CommonModule,
@@ -18,5 +18,5 @@ import { ColorPickerModule } from 'ngx-color-picker';
     TagComponent,
     NewTagComponent,
   ]
-})*/
+})
 export class TagsModule { }

@@ -15,5 +15,6 @@ export class AppComponent {
   displayedLinks: SidenavLink[] = [
     {routerLink: '/home', featherIcon: 'home', linkText: 'Home'},
     {routerLink: '/stations', featherIcon: 'map-pin', linkText: 'Stations'},
+    {routerLink: '/tags', featherIcon: 'tag', linkText: 'Tags'},
   ];
 }

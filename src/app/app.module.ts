@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '@shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { StationsModule } from './stations/stations.module';
+import { TagsModule } from './tags/tags.module';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,10 @@ import { StationsModule } from './stations/stations.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     StationsModule,
+    TagsModule,
     /*
         ScheduledDispatchesModule,
         TimetablesModule,
-        TagsModule,
     */
   ],
   providers: [],

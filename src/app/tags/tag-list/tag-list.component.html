@@ -1,10 +1,12 @@
-<a mat-raised-button color="primary" [routerLink]="['new']">
-  <mat-icon>add</mat-icon> Add new tag...
-</a>
-<mat-card>
-  <mat-nav-list>
-    <a mat-list-item *ngFor="let tag of tags">
-      <app-tag [tag]="tag"></app-tag>
-    </a>
-  </mat-nav-list>
-</mat-card>
+<button routerLink="new">
+  Add new tag
+</button>
+<div class="box">
+  <ul class="no-bullets">
+    <li *ngFor="let tag of tags">
+      <a>
+        <app-tag [tag]="tag"></app-tag>
+      </a>
+    </li>
+  </ul>
+</div>
