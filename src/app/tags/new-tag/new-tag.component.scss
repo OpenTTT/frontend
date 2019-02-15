@@ -1,8 +1,9 @@
 .tag-color-picker {
   display: block;
-  border: 0;
+  border-style: solid;
+  border-width: 1px;
 }
 
-mat-form-field {
-  width: 100%;
+form {
+  width: 80%;
 }
