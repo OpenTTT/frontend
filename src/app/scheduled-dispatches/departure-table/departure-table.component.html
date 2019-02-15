@@ -10,8 +10,8 @@
     <tr *ngFor="let stationDepartures of schedules; let even = even" [ngClass]="{even: even}">
       <td>{{ stationDepartures.station }}</td>
       <td *ngFor="let departure of stationDepartures.departures">
-        A: {{ departure.arrival }}<br />
-        D: {{ (stationDepartures.returnTrip) ? '--:--' : departure.departure }}
+        A:&nbsp;{{ departure.arrival }}<br />
+        D:&nbsp;{{ (stationDepartures.returnTrip) ? '--:--' : departure.departure }}
       </td>
     </tr>
   </tbody>

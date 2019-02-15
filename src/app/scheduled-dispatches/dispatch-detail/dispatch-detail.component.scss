@@ -1,13 +1,17 @@
 #compact-timetable-schedule {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
 
-  div {
+  // Hack to get correct behaviour when wrapping the two flex-items around
+  margin: 0 -5px;
+
+  div{
     flex-grow: 1;
-
-    &:not(:first-child) {
-      margin-left: 15px;
+    
+    &:last-child {
+      margin: 0 5px;
     }
   }
 }
