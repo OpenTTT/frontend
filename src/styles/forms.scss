@@ -46,3 +46,19 @@ input.slim {
     border-bottom: 1px solid $primary-color;
   }
 }
+
+button.icon-button {
+  padding: 0;
+
+  background-color: transparent;
+  border-color: transparent;
+  color: $text-color;
+  line-height: 1;
+  
+  &:hover {
+    background-color: transparent;
+    color: $primary-color;
+    border: none;
+    cursor: pointer;
+  }
+}

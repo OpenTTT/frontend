@@ -15,8 +15,11 @@ import {
   IconClock,
   IconHelpCircle,
   IconHome,
-  IconMapPin, IconSettings,
-  IconTag, IconX
+  IconMapPin,
+  IconPlus,
+  IconSettings,
+  IconTag,
+  IconX,
 } from 'angular-feather';
 
 // A collection of the icons used in the application
@@ -26,10 +29,11 @@ const icons: any[] = [
   IconArrowDownRight, // Sidebar: Timetables
   IconClock, // Sidebar: Scheduled Dispatches
   IconTag, // Sidebar: Tags
-  IconHelpCircle, // Sidebbar: Default
+  IconHelpCircle, // Sidebar: Default
   IconChevronRight, // Stations: Type Waypoint
   IconSettings, // Stations: Depots
-  IconX,
+  IconX, // Functional button: delete
+  IconPlus, // Functional button: add,
 ];
 
 @NgModule({

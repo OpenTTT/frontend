@@ -7,8 +7,14 @@
   Within that interval, it begins a new schedule at the following offsets:
   <ul>
     <li *ngFor="let departure of dispatch.departures; let i = index; trackBy: trackDeparture">
-      <input type="number" class="slim number" [(ngModel)]="dispatch.departures[i]" (change)="updateDispatch()"> minutes
-      <small><button [disabled]="dispatch.departures.length <= 1" (click)="removeDeparture(i)">Delete</button></small>
+      <span>
+        <input type="number" class="slim number" [(ngModel)]="dispatch.departures[i]" (change)="updateDispatch()"> minutes
+        <button class="icon-button"
+                [disabled]="dispatch.departures.length <= 1"
+                (click)="removeDeparture(i)">
+          <i-x></i-x>
+        </button>
+      </span>
     </li>
     <li>
       <input type="number"
