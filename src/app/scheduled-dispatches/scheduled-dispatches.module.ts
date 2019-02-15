@@ -9,7 +9,7 @@ import { NewScheduledDispatchComponent } from './new-scheduled-dispatch/new-sche
 import { DispatchBasicsComponent } from './dispatch-basics/dispatch-basics.component';
 import { TagsModule } from '../tags/tags.module';
 
-/*@NgModule({
+@NgModule({
   declarations: [
     DispatchListComponent,
     DispatchDetailComponent,
@@ -24,6 +24,7 @@ import { TagsModule } from '../tags/tags.module';
     TagsModule,
   ],
   exports: [DispatchListComponent, DispatchDetailComponent, NewScheduledDispatchComponent],
-})*/
+})
+
 export class ScheduledDispatchesModule { }
 

@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
 
-  mat-card {
+  div {
     flex-grow: 1;
 
     &:not(:first-child) {
