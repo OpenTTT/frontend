@@ -8,6 +8,7 @@ import { SharedModule } from '@shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { StationsModule } from './stations/stations.module';
 import { TagsModule } from './tags/tags.module';
+import { TimetablesModule } from './timetables/timetables.module';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,9 @@ import { TagsModule } from './tags/tags.module';
     BrowserAnimationsModule,
     StationsModule,
     TagsModule,
+    TimetablesModule,
     /*
         ScheduledDispatchesModule,
-        TimetablesModule,
     */
   ],
   providers: [],

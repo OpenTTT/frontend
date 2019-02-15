@@ -16,7 +16,7 @@ import {
   IconHelpCircle,
   IconHome,
   IconMapPin, IconSettings,
-  IconTag
+  IconTag, IconX
 } from 'angular-feather';
 
 // A collection of the icons used in the application
@@ -29,6 +29,7 @@ const icons: any[] = [
   IconHelpCircle, // Sidebbar: Default
   IconChevronRight, // Stations: Type Waypoint
   IconSettings, // Stations: Depots
+  IconX,
 ];
 
 @NgModule({

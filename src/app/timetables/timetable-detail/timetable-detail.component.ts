@@ -90,8 +90,8 @@ export class TimetableDetailComponent implements OnInit {
     observable.subscribe(() => this.router.navigate(['/timetables']));
   }
 
-  onTagSelectionChange(event: any) {
-    const id: number = +event.source.value;
+  onTagSelectionChange(event: string) {
+    const id = +event;
     const formArray = this.form.controls.tags as FormArray;
     formArray.push(this.fb.control(id));
     this.availableTags = this.availableTags.splice(id, 1);
