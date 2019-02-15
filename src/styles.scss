@@ -17,3 +17,7 @@ html, body {
 a, a:visited {
   color: $text-color;
 }
+
+ul.no-bullets {
+  list-style: none;
+}
