@@ -1,24 +1,21 @@
-<mat-card>
+<div class="box">
   <form [formGroup]="form">
     <div id="basic-properties">
-      <mat-form-field>
-        <input matInput placeholder="Name" formControlName="name" />
-      </mat-form-field>
+      <input placeholder="Name" formControlName="name" />
+
       <h4>Tags</h4>
       <ul id="tags">
         <li *ngFor="let tagId of form.value.tags; let i=index">
           <app-tag [tag]="findTagWithId(tagId)"></app-tag>
-          <button mat-icon-button (click)="removeTag(tagId, i)"><mat-icon>remove</mat-icon></button>
+          <a (click)="removeTag(tagId, i)">&nbsp; remove</a>
         </li>
       </ul>
+
       <div *ngIf="availableTags.length > 0">
-        <mat-form-field>
-          <mat-select placeholder="Search new tag...">
-            <mat-option *ngFor="let tag of availableTags;" [value]="tag.id" (onSelectionChange)="onTagSelectionChange($event)">
-              <app-tag [tag]="tag"></app-tag>
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+        <select id="available-tags" (change)="onTagSelectionChange($event.target.value)">
+          <option selected>Add a new tag...</option>
+          <option *ngFor="let tag of availableTags;" [value]="tag.id">{{ tag.title }}</option>
+        </select>
       </div>
     </div>
     <div id="orders-editor">
@@ -30,5 +27,5 @@
       ></app-timetable-structural-editor>
     </div>
   </form>
-</mat-card>
-<button mat-button mat-raised-button	color="primary" (click)="save()">Save</button>
+</div>
+<button (click)="save()">Save</button>

@@ -16,5 +16,6 @@ export class AppComponent {
     {routerLink: '/home', featherIcon: 'home', linkText: 'Home'},
     {routerLink: '/stations', featherIcon: 'map-pin', linkText: 'Stations'},
     {routerLink: '/tags', featherIcon: 'tag', linkText: 'Tags'},
+    {routerLink: '/timetables', featherIcon: 'tag', linkText: 'Timetables'}
   ];
 }

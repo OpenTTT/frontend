@@ -11,7 +11,7 @@ import {StationsModule} from '../stations/stations.module';
 import {RouterModule} from '@angular/router';
 import { TagsModule } from '../tags/tags.module';
 
-/*@NgModule({
+@NgModule({
   declarations: [
     TimetableTableComponent,
     TimetableEditorComponent,
@@ -28,5 +28,6 @@ import { TagsModule } from '../tags/tags.module';
     TagsModule,
   ],
   exports: [TimetableTableComponent, TimetableEditorComponent, TimetableListComponent]
-})*/
+})
+
 export class TimetablesModule { }
