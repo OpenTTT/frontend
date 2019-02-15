@@ -1,5 +1,5 @@
 <div id="root-grid">
-  <div id="sidebar">
+  <nav id="sidebar">
     <!-- TODO: Extract sidebar logic into its own component! -->
     <div class="sidebar-link" *ngFor="let link of displayedLinks">
       <a [routerLink]="link.routerLink" routerLinkActive="active">
@@ -11,7 +11,7 @@
         <span>{{ link.linkText }}</span>
       </a>
     </div>
-  </div>
+  </nav>
   <div id="content">
     <router-outlet></router-outlet>
   </div>
