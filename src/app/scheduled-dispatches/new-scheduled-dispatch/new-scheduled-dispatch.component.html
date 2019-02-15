@@ -1,14 +1,12 @@
 <form [formGroup]="newScheduledDispatchForm">
-  <mat-card>
+  <div class="box">
     <p>Create a new scheduled dispatch. It will start with default values which you can change in the next step.</p>
-    <mat-form-field>
-      <mat-select placeholder="Timetable" formControlName="timetable">
-        <mat-option *ngFor="let timetable of timetables" [value]="timetable.id">
-          {{timetable.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <select placeholder="Timetable" formControlName="timetable">
+      <option *ngFor="let timetable of timetables" [value]="timetable.id">
+        {{timetable.name}}
+      </option>
+    </select>
 
-    <button mat-button (click)="saveScheduledDispatch()" color="primary">Save</button>
-  </mat-card>
+    <button (click)="saveScheduledDispatch()">Save</button>
+  </div>
 </form>

@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { StationsModule } from './stations/stations.module';
 import { TagsModule } from './tags/tags.module';
 import { TimetablesModule } from './timetables/timetables.module';
+import { ScheduledDispatchesModule } from './scheduled-dispatches/scheduled-dispatches.module';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,7 @@ import { TimetablesModule } from './timetables/timetables.module';
     StationsModule,
     TagsModule,
     TimetablesModule,
-    /*
-        ScheduledDispatchesModule,
-    */
+    ScheduledDispatchesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

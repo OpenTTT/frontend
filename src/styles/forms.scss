@@ -17,3 +17,32 @@ select:focus {
   background-color: $primary-color;
   border: 0.1rem solid $primary-color;
 }
+
+.button[disabled]:focus, .button[disabled]:hover, button[disabled]:focus, button[disabled]:hover, input[type="button"][disabled]:focus, input[type="button"][disabled]:hover, input[type="reset"][disabled]:focus, input[type="reset"][disabled]:hover, input[type="submit"][disabled]:focus, input[type="submit"][disabled]:hover {
+  background-color: $hover-color;
+  border: 0.1rem solid $hover-color;
+}
+
+
+// Disabling arrow buttons
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+// Slim inputs for inline text entry
+input.slim {
+  width: 30px;
+  border: none;
+  border-bottom: 1px solid $text-color;
+  border-radius: 0;
+  padding: 0;
+  text-align: center;
+
+  &:active {
+    border-bottom: 1px solid $primary-color;
+  }
+}
