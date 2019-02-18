@@ -11,40 +11,6 @@
   @include flex-columns;
 
   border-right: 1px solid $separation-color;
-
-  > div {
-    @include flex-rows;
-
-    width: 100%;
-    height: $sidebar-item-height;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-
-    a {
-      @include flex-columns;
-
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-
-      &.active {
-        color: white;
-        background-color: $primary-color;
-      }
-      &:hover {
-        color: white;
-        background-color: $primary-hover-color;
-      }
-
-      @media screen and (max-width: 320px) {
-        span {
-          display: none;
-        }
-      }
-    }
-  }
 }
 
 #content {

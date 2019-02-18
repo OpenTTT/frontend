@@ -1,0 +1,13 @@
+<div class="sidebar-link" *ngFor="let link of displayedLinks">
+  <a [routerLink]="link.routerLink" routerLinkActive="active">
+    <ng-container [ngSwitch]="link.featherIcon">
+      <ng-template ngSwitchCase="home"><i-home></i-home></ng-template>
+      <ng-template ngSwitchCase="map-pin"><i-map-pin></i-map-pin></ng-template>
+      <ng-template ngSwitchCase="tag"><i-tag></i-tag></ng-template>
+      <ng-template ngSwitchCase="arrow-down-right"><i-arrow-down-right></i-arrow-down-right></ng-template>
+      <ng-template ngSwitchCase="clock"><i-clock></i-clock></ng-template>
+      <ng-template ngSwitchDefault><i-help-circle></i-help-circle></ng-template>
+    </ng-container>
+    <span>{{ link.linkText }}</span>
+  </a>
+</div>
