@@ -1,19 +1,21 @@
 <button routerLink="new">Add new scheduled dispatch</button>
 <div class="box">
-  <ul class="no-bullets">
-    <li *ngFor="let dispatch of dispatches">
-      <a [routerLink]="[dispatch.id]">
-        <p class="dispatch-name">
-          <app-tag *ngFor="let tag of dispatch.timetableTags" [tag]="tag"></app-tag>
-          <strong>{{ dispatch.timetable }}</strong>
-        </p>
-        <p>
-          <small>
-            <strong>{{ dispatch.departures.length}}</strong> departures,
-            every <strong>{{ dispatch.intervalInMinutes}} minutes</strong>
-          </small>
-        </p>
-      </a>
-    </li>
-  </ul>
+  <nav>
+    <ul class="no-bullets">
+      <li *ngFor="let dispatch of dispatches">
+        <a  [routerLink]="[dispatch.id]">
+          <p class="dispatch-name">
+            <app-tag *ngFor="let tag of dispatch.timetableTags" [tag]="tag"></app-tag>
+            <strong>{{ dispatch.timetable }}</strong>
+          </p>
+          <p>
+            <small>
+              <strong>{{ dispatch.departures.length}}</strong> departures,
+              every <strong>{{ dispatch.intervalInMinutes}} minutes</strong>
+            </small>
+          </p>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>

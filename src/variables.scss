@@ -1,11 +1,16 @@
 // Colors
+$text-color: #383838;
+$navigation-hover-color: rgba(56, 56, 56, 0.2);
+
 $primary-color: rgba(255, 134, 23, 1);
-$hover-color: rgba(255, 134, 23, 0.54);
+$primary-hover-color: rgba(255, 134, 23, 0.54);
+
 $background-color: rgb(240, 243, 240);
 $separation-color: #d2d2d2;
-$text-color: #383838;
-
 
 // Fixed sizes
 $sidebar-width: 10%;
 $sidebar-item-height: 5rem;
+
+// General styling
+$borderRadius: 4px;

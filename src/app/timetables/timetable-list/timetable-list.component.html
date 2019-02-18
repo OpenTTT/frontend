@@ -1,19 +1,23 @@
 <button routerLink="new">Add new Timetable</button>
 <div class="box">
-  <ul class="no-bullets">
-    <li *ngFor="let timetable of timetables" [routerLink]="[timetable.id]">
-      <p>
-        <app-tag *ngFor="let tag of timetable.tags" [tag]="tag"></app-tag>
-        <span class="dispatch-name">{{ timetable.name }}</span>
-      </p>
-      <p>
-        <small>
-          Calling at
-          <span *ngFor="let order of timetable.orders; let isLast=last">
-            {{ order.destination }}{{ isLast ? '' : ', ' }}
-          </span>
-        </small>
-      </p>
-    </li>
-  </ul>
+  <nav>
+    <ul class="no-bullets">
+      <li *ngFor="let timetable of timetables" >
+        <a [routerLink]="[timetable.id]">
+          <p>
+            <app-tag *ngFor="let tag of timetable.tags" [tag]="tag"></app-tag>
+            <span class="dispatch-name">{{ timetable.name }}</span>
+          </p>
+          <p>
+            <small>
+              Calling at
+              <span *ngFor="let order of timetable.orders; let isLast=last">
+                {{ order.destination }}{{ isLast ? '' : ', ' }}
+              </span>
+            </small>
+          </p>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>

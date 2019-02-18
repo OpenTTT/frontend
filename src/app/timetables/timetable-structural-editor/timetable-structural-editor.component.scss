@@ -1,7 +1,17 @@
-mat-form-field {
-  width: 90%;
-}
+@import "../../../mixins";
+@import "../../../variables";
 
 .hidden {
   visibility: hidden;
+}
+
+.faux-slim {
+  border: none;
+  border-bottom: 1px solid $text-color;
+  border-radius: 0;
+  width: 80%;
+
+  &:active, &:hover, &:focus {
+    border-bottom: 1px solid $primary-color;
+  }
 }

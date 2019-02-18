@@ -22,3 +22,16 @@ a, a:visited {
 ul.no-bullets {
   list-style: none;
 }
+
+// Navigation list
+nav ul li{
+  padding: 0.25rem;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $navigation-hover-color;
+  }
+  a {
+    text-decoration: none;
+  }
+}

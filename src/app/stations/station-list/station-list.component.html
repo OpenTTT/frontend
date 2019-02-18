@@ -1,16 +1,18 @@
 <div class="box" id="station-box">
-  <ul class="no-bullets">
-    <li *ngFor="let station of stations">
-      <a>
-        <span class="station-type-icon" [ngSwitch]="station.destinationType">
-          <ng-template ngSwitchCase="STATION"><i-home></i-home></ng-template>
-          <ng-template ngSwitchCase="WAYPOINT"><i-chevron-right></i-chevron-right></ng-template>
-          <ng-template ngSwitchCase="DEPOT"><i-settings></i-settings></ng-template>
-          <ng-template ngSwitchDefault>AAH</ng-template>
-        </span>
-        <span class="station-name">{{ station.name }}</span>
-      </a>
-    </li>
-  </ul>
+  <nav>
+    <ul class="no-bullets">
+      <li *ngFor="let station of stations">
+        <a>
+          <span class="station-type-icon" [ngSwitch]="station.destinationType">
+            <ng-template ngSwitchCase="STATION"><i-home></i-home></ng-template>
+            <ng-template ngSwitchCase="WAYPOINT"><i-chevron-right></i-chevron-right></ng-template>
+            <ng-template ngSwitchCase="DEPOT"><i-settings></i-settings></ng-template>
+            <ng-template ngSwitchDefault>AAH</ng-template>
+          </span>
+          <span class="station-name">{{ station.name }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
   <app-station-creation (stationAdded)="onStationAdded($event)"></app-station-creation>
 </div>
