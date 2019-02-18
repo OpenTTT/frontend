@@ -22,6 +22,7 @@ import {
   IconTag,
   IconX,
 } from 'angular-feather';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 // A collection of the icons used in the application
 const icons: any[] = [
@@ -35,8 +36,8 @@ const icons: any[] = [
   IconSettings, // Stations: Type Depots
   IconX, // Functional button: delete
   IconPlus, // Functional button: add,
-  IconArrowUp,
-  IconArrowDown,
+  IconArrowUp, // Functional button: up
+  IconArrowDown, // Functional button: down
 ];
 
 @NgModule({
@@ -51,6 +52,7 @@ const icons: any[] = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    SidenavComponent,
   ].concat(...icons),
   providers: [
     ScheduledDispatchService,
@@ -59,7 +61,8 @@ const icons: any[] = [
     StatsService,
     TagsService,
     {provide: ErrorHandler, useClass: OpenTTTErrorHandler},
-  ]
+  ],
+  declarations: [SidenavComponent]
 })
 export class SharedModule {
 
