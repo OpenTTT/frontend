@@ -1,7 +1,7 @@
 <form [formGroup]="newScheduledDispatchForm">
   <div class="box">
     <p>Create a new scheduled dispatch. It will start with default values which you can change in the next step.</p>
-    <select placeholder="Timetable" formControlName="timetable">
+    <select formControlName="timetable">
       <option *ngFor="let timetable of timetables" [value]="timetable.id">
         {{timetable.name}}
       </option>
