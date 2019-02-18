@@ -10,15 +10,16 @@
       <tr>
         <th>Station</th>
         <th>Staying Time</th>
-        <th>Travel Time</th>D
-        <th></th>
+        <th>Travel Time</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let _ of formArray.controls; let i = index">
         <td>
           <span [formGroupName]="i">
-            <input type="text"
+            <input class="faux-slim"
+                   type="text"
                    formControlName="destination"
                    (focus)="onFocusChanged(formArray.controls[i].controls['destination'])"
                    list="stations"
@@ -28,6 +29,7 @@
         <td>
           <span [formGroupName]="i">
             <input type="number"
+                   class="slim"
                    [value]="formArray.value[i].stayingTime"
                    min="0"
                    max="256"
@@ -38,6 +40,7 @@
         <td>
           <span [formGroupName]="i">
             <input type="number"
+                   class="slim"
                    [value]="formArray.value[i].travelingTime"
                    min="0"
                    max="256"
@@ -46,22 +49,23 @@
           </span>
         </td>
         <td>
-          <button (click)="onRowUp(i)" [ngClass]="{hidden: i == 0}">
-            up
+          <button class="icon-button" (click)="onRowUp(i)" [disabled]="i === 0">
+            <i-arrow-up></i-arrow-up>
           </button>
 
-          <button (click)="onRowDown(i)" [ngClass]="{hidden: (i == orders.length-1)}">
-            down
+          <button class="icon-button" (click)="onRowDown(i)" [disabled]="(i == orders.length-1)">
+            <i-arrow-down></i-arrow-down>
           </button>
 
-          <button (click)="onRowDeleted(i)">
-            del
+          <button class="icon-button" (click)="onRowDeleted(i)" [disabled]="orders.length === 1">
+            <i-x></i-x>
           </button>
         </td>
       </tr>
       <tr [formGroup]="newOrderForm">
         <td>
             <input #destinationInput
+                   class="faux-slim"
                    type="text"
                    formControlName="destination"
                    (focus)="onFocusChanged(newOrderForm.controls['destination'])"
@@ -70,6 +74,7 @@
         </td>
         <td>
           <input type="number"
+                 class="slim"
                  min="0"
                  max="256"
                  formControlName="stayingTime"
@@ -77,6 +82,7 @@
         </td>
         <td>
           <input type="number"
+                 class="slim"
                  min="0"
                  max="256"
                  formControlName="travelingTime"
@@ -84,8 +90,8 @@
           >
         </td>
         <td>
-          <button (click)="addNewStation()">
-            Add
+          <button class="icon-button" (click)="addNewStation()">
+            <i-plus></i-plus>
           </button>
         </td>
       </tr>

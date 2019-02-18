@@ -1,26 +1,31 @@
 @import "../mixins";
 @import "../variables";
 
-// Overwrite milligram
-form {
-  margin-bottom: 0;
-}
-input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input:not([type]):focus, textarea:focus, select:focus {
-  border-color: $primary-color;
-}
 
-select:focus {
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="%23FF8617" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat;
-}
+button {
+  @include shadow;
 
-.button, button, input[type="button"], input[type="reset"], input[type="submit"] {
+  border: none;
+  border-radius: $borderRadius;
   background-color: $primary-color;
-  border: 0.1rem solid $primary-color;
+  color: white;
+  padding: 1rem;
+  margin: 0.8rem 0;
+  cursor: pointer;
+
+  &:hover {
+    border: none;
+  }
 }
 
-.button[disabled]:focus, .button[disabled]:hover, button[disabled]:focus, button[disabled]:hover, input[type="button"][disabled]:focus, input[type="button"][disabled]:hover, input[type="reset"][disabled]:focus, input[type="reset"][disabled]:hover, input[type="submit"][disabled]:focus, input[type="submit"][disabled]:hover {
-  background-color: $hover-color;
-  border: 0.1rem solid $hover-color;
+input {
+  background: none;
+  border: 1px solid $separation-color;
+  border-radius: $borderRadius;
+
+  &:active, &:hover, &:focus {
+    border: 1px solid $primary-color;
+  }
 }
 
 
@@ -42,23 +47,24 @@ input.slim {
   padding: 0;
   text-align: center;
 
-  &:active {
+  &:active, &:hover, &:focus {
     border-bottom: 1px solid $primary-color;
   }
 }
 
 button.icon-button {
   padding: 0;
+  margin: 0;
 
   background-color: transparent;
   border-color: transparent;
   color: $text-color;
+  box-shadow: none;
 
   line-height: 1;
-  margin-bottom: 0;
   vertical-align: middle;
 
-  &:hover {
+  &:hover, &:active {
     background-color: transparent;
     color: $primary-color;
     border: none;

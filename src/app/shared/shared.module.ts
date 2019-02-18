@@ -10,7 +10,8 @@ import {StatsService} from '@shared/services/stats.service';
 import { OpenTTTErrorHandler } from '@shared/OpenTTTErrorHandler';
 import { TagsService } from '@shared/services/tags.service';
 import {
-  IconArrowDownRight,
+  IconArrowDown,
+  IconArrowDownRight, IconArrowUp,
   IconChevronRight,
   IconClock,
   IconHelpCircle,
@@ -31,9 +32,11 @@ const icons: any[] = [
   IconTag, // Sidebar: Tags
   IconHelpCircle, // Sidebar: Default
   IconChevronRight, // Stations: Type Waypoint
-  IconSettings, // Stations: Depots
+  IconSettings, // Stations: Type Depots
   IconX, // Functional button: delete
   IconPlus, // Functional button: add,
+  IconArrowUp,
+  IconArrowDown,
 ];
 
 @NgModule({
