@@ -13,7 +13,7 @@
   border-right: 1px solid $separation-color;
 }
 
-#content {
+main {
   @include inset-shadow;
 
   background-color: $background-color;
