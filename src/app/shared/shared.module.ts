@@ -22,6 +22,7 @@ import {
   IconTag,
   IconX,
 } from 'angular-feather';
+import { OpenTTTService } from '@shared/services/openttt-service';
 
 // A collection of the icons used in the application
 const icons: any[] = [
@@ -55,9 +56,9 @@ const icons: any[] = [
   providers: [
     ScheduledDispatchService,
     StationsService,
-    TimetableService,
     StatsService,
     TagsService,
+    TimetableService,
     {provide: ErrorHandler, useClass: OpenTTTErrorHandler},
   ],
 })

@@ -5,7 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class OpenTTTErrorHandler implements ErrorHandler {
-  constructor(private zone: NgZone) {}
+  constructor() {}
 
   handleError(error: any): void {
     if (error instanceof HttpErrorResponse) {

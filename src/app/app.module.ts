@@ -12,6 +12,7 @@ import { TimetablesModule } from './timetables/timetables.module';
 import { ScheduledDispatchesModule } from './scheduled-dispatches/scheduled-dispatches.module';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { IconArrowDownRight, IconClock, IconHelpCircle, IconHome, IconMapPin, IconTag } from 'angular-feather';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { IconArrowDownRight, IconClock, IconHelpCircle, IconHome, IconMapPin, Ic
     SharedModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     StationsModule,
     TagsModule,
     TimetablesModule,
