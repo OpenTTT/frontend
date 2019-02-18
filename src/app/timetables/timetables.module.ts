@@ -10,6 +10,7 @@ import { TimetableStructuralEditorComponent } from './timetable-structural-edito
 import {StationsModule} from '../stations/stations.module';
 import {RouterModule} from '@angular/router';
 import { TagsModule } from '../tags/tags.module';
+import { IconArrowDown, IconArrowUp, IconPlus, IconX } from 'angular-feather';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,10 @@ import { TagsModule } from '../tags/tags.module';
     SharedModule,
     StationsModule,
     TagsModule,
+    IconPlus,
+    IconX,
+    IconArrowUp,
+    IconArrowDown,
   ],
   exports: [TimetableTableComponent, TimetableEditorComponent, TimetableListComponent]
 })

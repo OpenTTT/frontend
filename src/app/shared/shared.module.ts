@@ -22,7 +22,6 @@ import {
   IconTag,
   IconX,
 } from 'angular-feather';
-import { SidenavComponent } from './sidenav/sidenav.component';
 
 // A collection of the icons used in the application
 const icons: any[] = [
@@ -52,7 +51,6 @@ const icons: any[] = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    SidenavComponent,
   ].concat(...icons),
   providers: [
     ScheduledDispatchService,
@@ -62,7 +60,6 @@ const icons: any[] = [
     TagsService,
     {provide: ErrorHandler, useClass: OpenTTTErrorHandler},
   ],
-  declarations: [SidenavComponent]
 })
 export class SharedModule {
 

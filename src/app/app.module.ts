@@ -10,11 +10,14 @@ import { StationsModule } from './stations/stations.module';
 import { TagsModule } from './tags/tags.module';
 import { TimetablesModule } from './timetables/timetables.module';
 import { ScheduledDispatchesModule } from './scheduled-dispatches/scheduled-dispatches.module';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { IconArrowDownRight, IconClock, IconHelpCircle, IconHome, IconMapPin, IconTag } from 'angular-feather';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,12 @@ import { ScheduledDispatchesModule } from './scheduled-dispatches/scheduled-disp
     TagsModule,
     TimetablesModule,
     ScheduledDispatchesModule,
+    IconHome,
+    IconClock,
+    IconHelpCircle,
+    IconMapPin,
+    IconTag,
+    IconArrowDownRight,
   ],
   providers: [],
   bootstrap: [AppComponent]

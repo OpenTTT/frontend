@@ -5,6 +5,7 @@ import { TagComponent } from './tag/tag.component';
 import { SharedModule } from '@shared/shared.module';
 import { NewTagComponent } from './new-tag/new-tag.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [TagListComponent, TagComponent, NewTagComponent],
@@ -12,6 +13,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
     CommonModule,
     SharedModule,
     ColorPickerModule,
+    ReactiveFormsModule,
   ],
   exports: [
     TagListComponent,
