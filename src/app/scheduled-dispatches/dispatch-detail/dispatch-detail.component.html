@@ -1,7 +1,9 @@
 <div class="box">
   <div *ngIf="dispatch">
     <h4>Dispatch for timetable {{ dispatch.timetable }} <app-tag *ngFor="let tag of dispatch.timetableTags" [tag]="tag"></app-tag></h4>
-    <app-dispatch-basics [dispatch]="dispatch"></app-dispatch-basics>
+    <app-dispatch-basics [dispatch]="dispatch"
+                         (dispatchChanged)="onDepartureRelevantChanges()"
+    ></app-dispatch-basics>
   </div>
 </div>
 
@@ -10,7 +12,7 @@
     <h4>Timetable</h4>
     <div id="timetable-table" *ngIf="dispatch; else timetableLoading">
       <app-timetable-editor [timetableId]="dispatch?.timetableId"
-                            (timetableChanged)="onTimetableChanges()"
+                            (timetableChanged)="onDepartureRelevantChanges()"
       >
       </app-timetable-editor>
 

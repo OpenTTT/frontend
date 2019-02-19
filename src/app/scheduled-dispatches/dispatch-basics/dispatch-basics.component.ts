@@ -1,6 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import {ScheduledDispatch} from '@shared/model/scheduled-dispatch';
 import {ScheduledDispatchService} from '@shared/services/scheduled-dispatch.service';
+import { Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dispatch-basics',
@@ -13,6 +15,8 @@ export class DispatchBasicsComponent implements OnInit {
   ) { }
 
   @Input() dispatch: ScheduledDispatch;
+  @Output() dispatchChanged: Subject<any> = new Subject<any>();
+
   newDeparture = 0;
 
   ngOnInit() {
@@ -21,6 +25,7 @@ export class DispatchBasicsComponent implements OnInit {
 
   updateDispatch() {
     this.api.updateScheduledDispatch(this.dispatch)
+      .pipe(tap(() => this.dispatchChanged.next()))
       .subscribe(updatedDispatch => this.dispatch = updatedDispatch);
   }
 

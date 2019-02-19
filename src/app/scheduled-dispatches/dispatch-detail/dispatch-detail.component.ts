@@ -35,7 +35,7 @@ export class DispatchDetailComponent implements OnInit {
       .subscribe(() => this.dispatchChange.next());
   }
 
-  onTimetableChanges() {
+  onDepartureRelevantChanges() {
     this.dispatchChange.next();
   }
 
