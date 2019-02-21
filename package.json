@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "cypress": "cypress open"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +22,7 @@
     "@angular/router": "~7.2.0",
     "angular-feather": "^5.3.1",
     "core-js": "^2.5.4",
+    "cypress": "^3.1.5",
     "ngx-color-picker": "^7.3.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",

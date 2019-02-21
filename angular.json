@@ -55,6 +55,23 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "e2e": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.e2e.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "budgets": []
             }
           }
         },
@@ -66,6 +83,9 @@
           "configurations": {
             "production": {
               "browserTarget": "openttt-frontend:build:production"
+            },
+            "e2e": {
+              "browserTarget": "openttt-frontend:build:e2e"
             }
           }
         },
