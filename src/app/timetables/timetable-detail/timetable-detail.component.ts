@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormArray, FormBuilder, Validators} from '@angular/forms';
-import {TimetableService} from '@shared/services/timetable.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { TimetableService } from '@shared/services/timetable.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Tag } from '@shared/model/tag';
 import { TagsService } from '@shared/services/tags.service';
 

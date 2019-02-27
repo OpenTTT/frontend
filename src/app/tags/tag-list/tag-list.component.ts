@@ -14,9 +14,7 @@ export class TagListComponent implements OnInit {
   tags: Tag[] = [];
 
   ngOnInit() {
-    this.api.getTags().subscribe(
-      tags => this.tags = tags
-    );
+    this.api.getTags().subscribe(tags => this.tags = tags);
   }
 
 }

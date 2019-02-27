@@ -3,6 +3,7 @@ import {ScheduledDispatch} from '@shared/model/scheduled-dispatch';
 import {ScheduledDispatchService} from '@shared/services/scheduled-dispatch.service';
 import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { DispatchChangeService } from '../dispatch-change.service';
 
 @Component({
   selector: 'app-dispatch-basics',
@@ -12,10 +13,10 @@ import { tap } from 'rxjs/operators';
 export class DispatchBasicsComponent implements OnInit {
   constructor(
     private api: ScheduledDispatchService,
-  ) { }
+    private dispatchChanged: DispatchChangeService
+  ) {}
 
   @Input() dispatch: ScheduledDispatch;
-  @Output() dispatchChanged: Subject<any> = new Subject<any>();
 
   newDeparture = 0;
 

@@ -9,9 +9,7 @@ import { Stats } from '@shared/model/stats';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(
-    private api: StatsService,
-  ) { }
+  constructor(private api: StatsService) {}
 
   stats: Stats;
 

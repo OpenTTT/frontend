@@ -1,10 +1,10 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { ScheduledDispatch } from '../../shared/model/scheduled-dispatch';
 import { ActivatedRoute} from '@angular/router';
-import { ScheduledDispatchService } from '../../shared/services/scheduled-dispatch.service';
-import {Subject} from 'rxjs';
-import {FormArray, FormBuilder} from '@angular/forms';
-import {debounceTime} from 'rxjs/operators';
+import { ScheduledDispatchService } from '@shared/services/scheduled-dispatch.service';
+import { Subject } from 'rxjs';
+import { FormBuilder } from '@angular/forms';
+import { DispatchChangeService } from '../dispatch-change.service';
 
 @Component({
   selector: 'app-dispatch-detail',
@@ -17,11 +17,11 @@ export class DispatchDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private api: ScheduledDispatchService,
     private fb: FormBuilder,
+    private dispatchChange: DispatchChangeService,
   ) { }
 
   id = -1;
   dispatch: ScheduledDispatch = null;
-  dispatchChange: Subject<any> = new Subject();
   numberOfDeparturesDisplayed = this.fb.control(5);
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ScheduledDispatchService } from '../../shared/services/scheduled-dispatch.service';
-import { ScheduledDispatch } from '../../shared/model/scheduled-dispatch';
+import { ScheduledDispatchService } from '@shared/services/scheduled-dispatch.service';
+import { ScheduledDispatch } from '@shared/model/scheduled-dispatch';
 
 @Component({
   selector: 'app-dispatch-list',

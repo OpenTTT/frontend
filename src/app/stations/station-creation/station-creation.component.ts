@@ -27,14 +27,13 @@ export class StationCreationComponent {
   submitValue() {
     if (this.form.valid) {
       this.form.disable();
-      this.api.create(this.form.value)
-        .subscribe(
-          (station) => {
-            this.stationAdded.next(station);
-            this.clearForm();
-          }
-          );
+      this.api.create(this.form.value).subscribe(this.onStationCreated);
     }
+  }
+
+  private onStationCreated(station) {
+    this.stationAdded.next(station);
+    this.clearForm();
   }
 
   clearForm() {
