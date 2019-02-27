@@ -1,9 +1,7 @@
 <div class="box">
   <div *ngIf="dispatch">
     <h4>Dispatch for timetable {{ dispatch.timetable }} <app-tag *ngFor="let tag of dispatch.timetableTags" [tag]="tag"></app-tag></h4>
-    <app-dispatch-basics [dispatch]="dispatch"
-                         (dispatchChanged)="onDepartureRelevantChanges()"
-    ></app-dispatch-basics>
+    <app-dispatch-basics [dispatch]="dispatch"></app-dispatch-basics>
   </div>
 </div>
 
@@ -28,9 +26,7 @@
     <div id="schedule-table" *ngIf="dispatch != null; else scheduleLoading;">
 
       <app-departure-table [numSchedules]="numberOfDeparturesDisplayed.value"
-                           [dispatchId]="id"
-                           [dispatchChange]="dispatchChange.asObservable()"
-      >
+                           [dispatchId]="id">
       </app-departure-table>
 
     </div>
